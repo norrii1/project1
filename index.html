@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="reference.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+
+  <style>
+    body {
+      background-color: lightblue;
+    }
+
+    .myCard {
+      display: flex;
+      width: 20vw;
+      margin: 15px;
+    }
+  </style>
+
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+
+
+  <form>
+    <p>
+      <label for="searchArtist">Artist</label>
+      <input type="text" name="searchArtist" id="searchArtist">
+    </p>
+    <p>
+      <label for="searchSong">Song Title</label>
+      <input type="text" name="searchSong" id="searchSong">
+    </p>
+    <button id="searchBtn">Search</button>
+  </form>
+
+
+
+
+  <div id="songDiv"></div>
+  <div id="urbanDiv"></div>
+  <div id="merriamDiv"></div>
+
+
+  <script>
+    let searchBtn = document.getElementById('searchBtn')
+
+
+
+    //EVENT LISTENER FOR LYRICS SEARCH BUTTON,  LYRIC API REQUEST
+
+    searchBtn.addEventListener('click', event => {
+      event.preventDefault()
+
+      axios.get(`https://api.lyrics.ovh/v1/${document.getElementById('searchArtist').value}/${document.getElementById('searchSong').value}`)
+        .then(res => {
+          document.getElementById('songDiv').innerHTML = ''
+          let song = res.data
+          console.log(song)
+          let lyricsElem = document.createElement('div')
+          lyricsElem.className = "lyrics card"
+          lyricsElem.innerHTML =
+            `
+            Lyrics: 
+            <br>
+            ${song.lyrics}
+
+
+
+        <form>
+    <p>
+      <label for="search">search</label>
+      <input type="text" name="search" id="search">
+    </p>
+    <p>
+      <button class="urbanBtn merriamBtn" id="searchTerm">Search term</button>
+    </p>
+    </form>
+
+
+    
+
+
+            `
+          document.getElementById('songDiv').append(lyricsElem)
+
+
+        })
+        .catch(err => console.error(err))
+    })
+
+    //URBAN DICTIONARY SEARCH BUTTON EVENT LISTENER AND API REQUEST
+
+    document.addEventListener('click', event => {
+      event.preventDefault()
+
+      if (event.target.classList.contains('urbanBtn')) {
+
+        document.getElementById('searchTerm').addEventListener('click', event => {
+          event.preventDefault()
+          document.getElementById('urbanDiv').innerHTML = ''
+
+
+          const options = {
+            method: 'GET',
+            url: 'https://mashape-community-urban-dictionary.p.rapidapi.com/define',
+            params: { term: document.getElementById('search').value },
+            headers: {
+              'x-rapidapi-key': '5b1b7e178amsh3bc5c884fdb5116p1a97e0jsn383898b43bbd',
+              'x-rapidapi-host': 'mashape-community-urban-dictionary.p.rapidapi.com'
+            }
+          };
+
+          axios.request(options).then(function (response) {
+            console.log(response.data)
+            let term = response.data
+
+            // for (let i = 0; i<response.data.list.length; i++) {
+            let termElem = document.createElement('div')
+            termElem.className = 'card'
+            termElem.innerHTML = `
+
+        
+          ${term.list[0].definition}
+
+
+        `
+            document.getElementById('urbanDiv').append(termElem)
+
+
+
+          }).catch(function (error) {
+            console.error(error)
+          });
+
+
+        })
+      }
+      //MERRIAM WEBSTER API REQUEST
+
+      if (event.target.classList.contains('merriamBtn')) {
+
+        document.getElementById('searchTerm').addEventListener('click', event => {
+          // event.preventDefault()
+          document.getElementById('merriamDiv').innerHTML = ''
+          axios.get(`https://www.dictionaryapi.com/api/v3/references/collegiate/json/${document.getElementById('search').value}? key=5f89c99f-0dd2-4d8e-8a70-b6cb031e66c9`)
+            .then(res => {
+              let def = res.data
+              console.log(def)
+              let defElem = document.createElement('div')
+              defElem.className = 'card'
+              defElem.innerHTML = `
+              ${def[0].shortdef[0]}
+              `
+              document.getElementById('merriamDiv').append(defElem)
+            })
+        })
+      }
+    })
+
+
+
+
+
+
+
+    // document.addEventListener('click', event => {
+    //   event.preventDefault()
+
+    //   if (event.target.classList.contains('merriamBtn')) {
+
+    //     document.getElementById('searchTerm2').addEventListener('click', event => {
+    //       event.preventDefault()
+    //       document.getElementById('merriamDiv').innerHTML = ''
+    //       axios.get(`https://www.dictionaryapi.com/api/v3/references/collegiate/json/${document.getElementById('search2').value}? key=5f89c99f-0dd2-4d8e-8a70-b6cb031e66c9`)
+    //         .then(res => {
+    //           let def = res.data
+    //           console.log(def)
+    //           let defElem = document.createElement('div')
+    //           defElem.className = 'card'
+    //           defElem.innerHTML = `
+    //           ${def[0].shortdef[0]}
+    //           `
+    //           document.getElementById('merriamDiv').append(defElem)
+    //         })
+    //     })
+    //   }
+    // })
+
+
+
+
+
+
+
+  </script>
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <script>
+
+
+
+
+
+
+
+
+
+
+  </script>
+
+
+</body>
+
+</html>
