@@ -42,10 +42,11 @@
 
 
 
-
+  <div id='artistDiv'></div>
   <div id="songDiv"></div>
   <div id="urbanDiv"></div>
   <div id="merriamDiv"></div>
+  
 
 
   <script>
@@ -90,10 +91,30 @@
             `
           document.getElementById('songDiv').append(lyricsElem)
 
+            
+
+          axios.get(`https://theaudiodb.com/api/v1/json/1/search.php?s=${document.getElementById('searchArtist').value}`)
+            .then(res => {
+              document.getElementById('artistDiv').innerHTML = ''
+              let artist = res.data
+              console.log(artist)
+              let artistElem = document.createElement('image')
+              artistElem.innerHTML = `
+                <img src= ${artist.artists[0].strArtistThumb} >
+              `
+
+              document.getElementById('artistDiv').append(artistElem)
+            })
+            .catch(err => console.error(err))
+        })
+
+          .catch(err => console.error(err))
+
 
         })
-        .catch(err => console.error(err))
-    })
+        
+    
+  
 
     //URBAN DICTIONARY SEARCH BUTTON EVENT LISTENER AND API REQUEST
 
