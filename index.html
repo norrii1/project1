@@ -91,9 +91,7 @@
             `
           document.getElementById('songDiv').append(lyricsElem)
 
-            
-
-          axios.get(`https://theaudiodb.com/api/v1/json/1/search.php?s=${document.getElementById('searchArtist').value}`)
+             axios.get(`https://theaudiodb.com/api/v1/json/1/search.php?s=${document.getElementById('searchArtist').value}`)
             .then(res => {
               document.getElementById('artistDiv').innerHTML = ''
               let artist = res.data
@@ -106,6 +104,8 @@
               document.getElementById('artistDiv').append(artistElem)
             })
             .catch(err => console.error(err))
+
+         
         })
 
           .catch(err => console.error(err))
