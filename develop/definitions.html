@@ -12,8 +12,11 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="develop/style/style.css">
 
-  <style>
-    .brand-logo {
+</head>
+<style>
+
+
+   .brand-logo {
       width: 10vw;
     }
   
@@ -98,6 +101,20 @@
       background-color: whitesmoke;
       opacity: 0.8;
     }
+
+    @media screen and (max-width: 800px) {
+       .input-field input[type=text] {
+         font-size: 12px;
+    }
+    }
+    @media screen and (max-width: 800px) {
+       .input-field input[type=text] {
+         font-size: 12px;
+    }
+    }
+
+
+
   
     /* icon prefix focus color */
     .input-field .prefix.active {
@@ -105,7 +122,7 @@
     }
   
     .input-field.col label {
-      font-size: 20px;
+      font-size: 0px;
     }
   
     ::-webkit-input-placeholder {
@@ -118,7 +135,8 @@
       background-color: black !important;
     }
     .myDef  {
-      font-size: 20px;
+      font-size: 18px;
+      
      
       
     }
@@ -130,13 +148,16 @@
     .pirate {
       color: grey;
     }
-    
-  </style>
-</head>
+
+    .myForm {
+      margin-top: 4vh;
+      margin-left: 8vw;
+    }
+</style>
 
 <body>
-
-  <nav class='navbar-fixed'>
+  <!-- Navbar -->
+  <nav class='navbar'id= "navbarStick">
     <div class="nav-wrapper">
       <a href="./index3.html" class="brand-logo"><img src="./develop/assets/songslanglogo.png" alt="songslanglogo"></a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -156,6 +177,18 @@
  
 
 
+<div class='row'></div>
+<div class='row'></div>
+
+<form id='songForm' method='POST' class="col s12 myForm">
+  <div class='row'>
+    <div class="input-field col s4 offset-s1">
+      <input placeholder="Search any term (try yam)" id="searchTerm1" type="text" class="validate">
+      <label for="searchTerm1">Search Term</label>
+      <button class=" btn btn-flat black waves-effect waves-light white-text"
+        id="mySearchBtn">Search</button>
+    </div>
+  </div>
 
 
   
@@ -175,17 +208,14 @@
 
 
 
+      <div class="divider"></div>
+      <p class="myDef pirate" id="merriamDiv1">
 
-  <!-- main content -->
-  <div class="container">
-    <div class="jumbotron" id="tagline">
-      <!-- <h1>HEADER JUMBO</h1> -->
-      <!-- <p>ok bla bla</p> -->
-    </div>
-    <div class="row">
-      <div class="col m6">
-        <img src="develop/assets/merriamsmall.png" alt="">
-        <h3>Merriam Webster</h3>
+        Jib scurvy bilged on her anchor ballast Arr topgallant gaff Yellow Jack stern long clothes. Ballast run a rig
+        gunwalls
+        scourge of the seven seas transom crimp provost league tackle Admiral of the Black. Lass boatswain gally ye
+        bring a
+        spring upon her cable black.
 
         <div class="divider"></div>
         <p class="myDef pirate" id="merriamDiv">
@@ -205,17 +235,20 @@
 
 
 
-      </div>
-      <div class="col m6">
-        <img src="develop/assets/urbandictionarysmall.png" alt="">
-        <h3>Urban Dictionary</h3>
+    </div>
+    <div class="col m6">
+      
+      <h3>Urban Dictionary</h3>
+      <img src="develop/assets/urbandictionarysmall.png" alt="">
 
-        <div class="divider"></div>
-        <p class="myDef pirate" id="urbanDiv">
+      <div class="divider"></div>
+      <p class="myDef pirate" id="urbanDiv1">
 
-          Scuttle rigging scurvy cog lee nipper Letter of Marque transom Buccaneer Privateer. Chain Shot ho Letter of Marque
-          hornswaggle booty fathom jack bounty maroon Barbary Coast. Nipperkin Barbary Coast measured fer yer chains blow the man
-          down Letter of Marque smartly splice the main brace furl parley starboard.
+        Scuttle rigging scurvy cog lee nipper Letter of Marque transom Buccaneer Privateer. Chain Shot ho Letter of
+        Marque
+        hornswaggle booty fathom jack bounty maroon Barbary Coast. Nipperkin Barbary Coast measured fer yer chains blow
+        the man
+        down Letter of Marque.
 
         </p>
         <button id='prevUrb' class="btn btn-flat black waves-effect waves-light white-text">Previous Definition</button>
@@ -312,9 +345,11 @@
 </script>
 
   <script>
-    let searchBtn = document.getElementById('searchBtn')
-    let urban = 0
-    let merriam = 0
+
+
+    let mySearchBtn = document.getElementById('mySearchBtn')
+      let urban = 0
+      let merriam = 0
 
 
 
@@ -332,43 +367,56 @@
     
 
 
-    document.addEventListener('click', event => {
-      event.preventDefault()
+    
 
-
-      if (event.target.classList.contains('urbanBtn')) {
+      mySearchBtn.addEventListener('click', event => {
+        event.preventDefault()
 
         document.getElementById('urbanDiv').classList.remove('pirate')
         document.getElementById('merriamDiv').classList.remove('pirate')
 
-        // document.getElementById('searchTerm').addEventListener('click', event => {
-        //   event.preventDefault()
-        document.getElementById('urbanDiv').innerHTML = ''
+        // if (event.target.classList.contains('urbanBtn')) {
 
+          document.getElementById('urbanDiv1').classList.remove('pirate')
+          document.getElementById('merriamDiv1').classList.remove('pirate')
 
-        const options = {
-          method: 'GET',
-          url: 'https://mashape-community-urban-dictionary.p.rapidapi.com/define',
-          params: { term: document.getElementById('searchTerm').value },
-          headers: {
-            'x-rapidapi-key': '5b1b7e178amsh3bc5c884fdb5116p1a97e0jsn383898b43bbd',
-            'x-rapidapi-host': 'mashape-community-urban-dictionary.p.rapidapi.com'
-          }
-        };
+          // document.getElementById('searchTerm').addEventListener('click', event => {
+          //   event.preventDefault()
+          document.getElementById('urbanDiv1').innerHTML = ''
 
         axios.request(options).then(function (response) {
           console.log(response.data)
           let term = response.data
 
-          // for (let i = 0; i<response.data.list.length; i++) {
+          const options1 = {
+            method: 'GET',
+            url: 'https://mashape-community-urban-dictionary.p.rapidapi.com/define',
+            params: { term: document.getElementById('searchTerm1').value },
+            headers: {
+              'x-rapidapi-key': '5b1b7e178amsh3bc5c884fdb5116p1a97e0jsn383898b43bbd',
+              'x-rapidapi-host': 'mashape-community-urban-dictionary.p.rapidapi.com'
+            }
+          };
 
-          let termElem = document.createElement('div')
+          axios.request(options1).then(function (response) {
+            console.log(response.data)
+            let term = response.data
 
           termElem.className = 'card'
           termElem.innerHTML = `
 
 
           ${term.list[0].definition}
+        
+            console.log(termElem.textContent)
+
+              
+            
+            for (let i = 0; i <= termElem.textContent.length; i++) {
+              if (termElem.textContent[i] === '[' || termElem.textContent[i] === ']') {
+                termElem.textContent[i] = ''
+              }
+            }
 
 
         `
@@ -380,8 +428,7 @@
             }
           }
 
-          
-          
+            document.getElementById('urbanDiv1').append(termElem)
 
           document.getElementById('urbanDiv').append(termElem)
           
@@ -392,31 +439,34 @@
         });
 
 
-      }
-      //MERRIAM WEBSTER API REQUEST
+        
+        //MERRIAM WEBSTER API REQUEST
 
-      if (event.target.classList.contains('merriamBtn')) {
+        // if (event.target.classList.contains('merriamBtn')) {
 
-        // document.getElementById('searchTerm').addEventListener('click', event => {
-        //   // event.preventDefault()
-        // event.preventDefault()
-        document.getElementById('merriamDiv').innerHTML = ''
+          // document.getElementById('searchTerm1').addEventListener('click', event => {
+          //   // event.preventDefault()
+          // event.preventDefault()
+          document.getElementById('merriamDiv1').innerHTML = ''
 
 
-        axios.get(`https://www.dictionaryapi.com/api/v3/references/collegiate/json/${document.getElementById('searchTerm').value}? key=5f89c99f-0dd2-4d8e-8a70-b6cb031e66c9`)
-          .then(res => {
-            let def = res.data
-            console.log(def)
-            let defElem = document.createElement('div')
-            defElem.className = 'card'
-            defElem.innerHTML = `
+          axios.get(`https://www.dictionaryapi.com/api/v3/references/collegiate/json/${document.getElementById('searchTerm1').value}? key=5f89c99f-0dd2-4d8e-8a70-b6cb031e66c9`)
+            .then(res => {
+              let def = res.data
+              console.log(def)
+              let defElem = document.createElement('div')
+              defElem.className = 'card'
+              defElem.innerHTML = `
               ${def[0].shortdef[0]}
               `
-            document.getElementById('merriamDiv').append(defElem)
-          })
+              document.getElementById('merriamDiv1').append(defElem)
+            })
+
+        
+      })
 
       }
-    })
+    )
 
     //THIS IS THE FUNCTION FOR THE 'NEXT DEFINITION' BUTTON. IT TAKES THE MERRIAM AND URBAN VARIABLE AND INCREMENTS IT BY 1 FOR EVERY TIME THE 'NEXT DEFINITION' IS CLICKED, AND CONDUCTS A NEW REQUEST USING THAT VALUE. 
 
@@ -432,21 +482,21 @@
     merBtn.addEventListener("click", event => {
       merriam++
 
-      document.getElementById('merriamDiv').innerHTML = ''
-      console.log('ping')
+        document.getElementById('merriamDiv1').innerHTML = ''
+        console.log('ping')
 
-      axios.get(`https://www.dictionaryapi.com/api/v3/references/collegiate/json/${document.getElementById('searchTerm').value}? key=5f89c99f-0dd2-4d8e-8a70-b6cb031e66c9`)
-        .then(res => {
-          let def = res.data
-          console.log(def)
-          let defElem = document.createElement('div')
-          defElem.className = 'card'
-          defElem.innerHTML = `
+        axios.get(`https://www.dictionaryapi.com/api/v3/references/collegiate/json/${document.getElementById('searchTerm1').value}? key=5f89c99f-0dd2-4d8e-8a70-b6cb031e66c9`)
+          .then(res => {
+            let def = res.data
+            console.log(def)
+            let defElem = document.createElement('div')
+            defElem.className = 'card'
+            defElem.innerHTML = `
               ${def[merriam].shortdef[0]}
               `
-          document.getElementById('merriamDiv').append(defElem)
-    })
-  })
+            document.getElementById('merriamDiv1').append(defElem)
+          })
+      })
 
   //NEXT DEFINITION BUTTON FOR URBAN DICTIONARY
 
@@ -456,22 +506,22 @@
 
     urban++
 
-  document.getElementById('urbanDiv').innerHTML = ''
+        document.getElementById('urbanDiv1').innerHTML = ''
 
 
-    const options = {
-      method: 'GET',
-      url: 'https://mashape-community-urban-dictionary.p.rapidapi.com/define',
-      params: { term: document.getElementById('searchTerm').value },
-      headers: {
-        'x-rapidapi-key': '5b1b7e178amsh3bc5c884fdb5116p1a97e0jsn383898b43bbd',
-        'x-rapidapi-host': 'mashape-community-urban-dictionary.p.rapidapi.com'
-      }
-    };
+        const options1 = {
+          method: 'GET',
+          url: 'https://mashape-community-urban-dictionary.p.rapidapi.com/define',
+          params: { term: document.getElementById('searchTerm1').value },
+          headers: {
+            'x-rapidapi-key': '5b1b7e178amsh3bc5c884fdb5116p1a97e0jsn383898b43bbd',
+            'x-rapidapi-host': 'mashape-community-urban-dictionary.p.rapidapi.com'
+          }
+        };
 
-    axios.request(options).then(function (response) {
-      console.log(response.data)
-      let term = response.data
+        axios.request(options1).then(function (response) {
+          console.log(response.data)
+          let term = response.data
 
       // for (let i = 0; i<response.data.list.length; i++) {
 
@@ -482,6 +532,8 @@
 
         
           ${term.list[urban].definition}
+        
+          document.getElementById('urbanDiv1').append(termElem)
 
 
         `
@@ -502,23 +554,24 @@
       let prevMer = document.getElementById('prevMer')
   
       prevMer.addEventListener("click", event => {
-    merriam--
+        merriam--
 
-    document.getElementById('merriamDiv').innerHTML = ''
-    console.log('ping')
+        document.getElementById('merriamDiv').innerHTML = ''
+        console.log('ping')
 
-    axios.get(`https://www.dictionaryapi.com/api/v3/references/collegiate/json/${document.getElementById('searchTerm').value}? key=5f89c99f-0dd2-4d8e-8a70-b6cb031e66c9`)
-      .then(res => {
-        let def = res.data
-        console.log(def)
-        let defElem = document.createElement('div')
-        defElem.className = 'card'
-        defElem.innerHTML = `
+        axios.get(`https://www.dictionaryapi.com/api/v3/references/collegiate/json/${document.getElementById('searchTerm1').value}? key=5f89c99f-0dd2-4d8e-8a70-b6cb031e66c9`)
+          .then(res => {
+            let def = res.data
+            console.log(def)
+            let defElem = document.createElement('div')
+            defElem.className = 'card'
+            defElem.innerHTML = `
               ${def[merriam].shortdef[0]}
               `
-        document.getElementById('merriamDiv').append(defElem)
+            document.getElementById('merriamDiv1').append(defElem)
+          })
       })
-  })
+  
 
 
 //PREVIOUS DEFINITION URBAN DICTIONARY
@@ -529,22 +582,22 @@
 
       urban--
 
-      document.getElementById('urbanDiv').innerHTML = ''
+        document.getElementById('urbanDiv1').innerHTML = ''
 
 
-      const options = {
-        method: 'GET',
-        url: 'https://mashape-community-urban-dictionary.p.rapidapi.com/define',
-        params: { term: document.getElementById('searchTerm').value },
-        headers: {
-          'x-rapidapi-key': '5b1b7e178amsh3bc5c884fdb5116p1a97e0jsn383898b43bbd',
-          'x-rapidapi-host': 'mashape-community-urban-dictionary.p.rapidapi.com'
-        }
-      };
+        const options1 = {
+          method: 'GET',
+          url: 'https://mashape-community-urban-dictionary.p.rapidapi.com/define',
+          params: { term: document.getElementById('searchTerm1').value },
+          headers: {
+            'x-rapidapi-key': '5b1b7e178amsh3bc5c884fdb5116p1a97e0jsn383898b43bbd',
+            'x-rapidapi-host': 'mashape-community-urban-dictionary.p.rapidapi.com'
+          }
+        };
 
-      axios.request(options).then(function (response) {
-        console.log(response.data)
-        let term = response.data
+        axios.request(options1).then(function (response) {
+          console.log(response.data)
+          let term = response.data
 
         // for (let i = 0; i<response.data.list.length; i++) {
 
@@ -574,6 +627,8 @@
     )
 
 
+          // termElem.replace(/[\[\]']+/g, '')
+          document.getElementById('urbanDiv1').append(termElem)
 
 
 
