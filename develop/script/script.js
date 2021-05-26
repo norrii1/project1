@@ -1,9 +1,10 @@
 // start of functions/ initiators for materialize to work for our pages
+//for side nav to work
 document.addEventListener('DOMContentLoaded', function () {
   var elem = document.querySelector('.sidenav');
   var instance = new M.Sidenav(elem);
 });
-
+//materialize auto intiation
 M.AutoInit();
 
 // When the user scrolls the page, execute myFunction
@@ -23,4 +24,10 @@ function myFunction() {
     header.classList.remove("sticky");
   }
 }
+//scrollspy
+
+document.addEventListener('DOMContentLoaded', function () {
+  var elems = document.querySelectorAll('.scrollspy');
+  var instances = M.ScrollSpy.init(elems);
+});
 // end of functions/ initiators for materialize to work for our pages

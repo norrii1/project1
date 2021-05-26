@@ -57,7 +57,7 @@
     <div class="row"></div>
     <div class="row"></div>
     <div class="row"></div>
-      <form id ='songForm' method='POST'class="col s12">
+      <form id ='songForm' class="col s12">
         <div class='row'>
           <div class="input-field col s4 offset-s1">
             <input placeholder=" i.e. Lazy Song" id="song_title" type="text" class="validate" name='song_title' required>
@@ -239,12 +239,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./develop/script/script.js"></script>
     <script>
-      
-        document.addEventListener('DOMContentLoaded', function () {
-          var elems = document.querySelectorAll('.scrollspy');
-          var instances = M.ScrollSpy.init(elems, options);
-        });
+      addEventListener('click', event=>{
+        console.log(event.target);
 
+      })
     </script>
 </body>
 
