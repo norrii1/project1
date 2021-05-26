@@ -7,47 +7,307 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="./develop/style/reset.css">
-  <link rel="stylesheet" href="reference.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="./develop/style/style.css">
 
   <style>
-    body {
-      background-color: lightblue;
+    .brand-logo{
+      width: 10vw;
     }
+    body{
+      background-color: whitesmoke;
+    }
+    .card{
+      word-wrap: break-word;
+    }
+    #mainSearch{
+      background-color: whitesmoke;
+      background-image: url(./develop/assets/animemusic.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+    nav{
+      background-color:black;
+    }
+    .sidenav{
+      background-color:darkgrey;
+    }
+    #black{
+      background-color: black;
+    }
+    #definitions, #lyricsHead{
+      background-color: black;
+      padding: 0;
+      margin: 0;
+      color: blanchedalmond;
+    }
+    #almond{
+      color: blanchedalmond;
+    }
+    h1,h2,h3,h4,h5 {
+      padding: 0;
+      margin: 0;
+    }
+    .input-field{
+      color:  black;
+    }
+     /* label color */
+   .input-field label {
+     color: #000;
+   }
+   /* label focus color */
+   .input-field input[type=text]:focus + label {
+     color: #000;
+   }
+   /* label underline focus color */
+   .input-field input[type=text]:focus {
+     border-bottom: 1px solid #000;
+     box-shadow: 0 1px 0 0 #000;
 
-    .myCard {
-      display: flex;
-      width: 20vw;
-      margin: 15px;
+   }
+   .input-field placeholder{
+     color: black;
+   }
+   .input-field input[type=text]{
+     border-bottom: 1px solid #000;
+     box-shadow: 0 1px 0 0 #000;
+     font-size: 20px;
+     background-color: whitesmoke;
+     opacity: 0.8;
+   }
+   /* icon prefix focus color */
+   .input-field .prefix.active {
+     color: #000;
+   }
+   .input-field.col label{
+     font-size: 20px;
+   }
+      ::-webkit-input-placeholder {
+    color:black;
+    opacity: 1 !important; /* for older chrome versions. may no longer apply. */
+}
+    .btn-large{
+      background-color: black!important;
     }
   </style>
+
 </head>
 
 <body>
+<!-- Navbar -->
+  <nav class='navbar-fixed'>
+    <div class="nav-wrapper">
+      <a href="./index.html" class="brand-logo"><img src="./develop/assets/songslanglogo.png" alt="songslanglogo"></a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="./index2.html"><i class="material-icons left">audiotrack</i>Home</a></li>
+        <li><a href="./develop/page2.html"><i class="material-icons left">school</i>Definitions</a></li>
+        <li><a href="./develop/page2.html"><i class="material-icons left">group</i>About Us</a></li>
+      </ul>
+    </div>
+  </nav>
+<!-- sidenavbar -->
+  <ul class="sidenav" id="mobile-demo">
+    <li><a href="./index2.html" class='waves-effect'><i class="material-icons left">audiotrack</i>Home</a></li>
+    <li><a href="./develop/page2.html" class='waves-effect'><i class="material-icons left">school</i>Definitions</a>
+    <li><a href="./develop/page2.html"><i class="material-icons left">face</i>About Us</a></li>
+  </ul>
+  <section id= 'mainSearch'>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+      <form id ='songForm' method='POST'class="col s12">
+        <div class='row'>
+          <div class="input-field col s4 offset-s1">
+            <input placeholder="i.e. Lazy Song" id="song_title" type="text" class="validate">
+            <label for="song_title">Song Title</label>
+          </div>
+        </div>
+        <div class="row"></div>
+        <div class="row"></div>
+        <div class="row"> 
+          <div class="input-field col s4 offset-s1">
+            <input placeholder='i.e. Bruno Mars'id="song_artist" type="text" class="validate">
+            <label for="song_artist">Artist</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s5 offset-s1">
+            <a class="waves-effect waves-light btn-large" id='songBtn'><i class="material-icons right">search</i>button</a>
+          </div>
+        </div>
+      </form>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+  </section>
+  <section>
+    <div id= 'black'class="row">
+      <div class= 'col s12 m4'>
+        <h1 id='lyricsHead' class="center-align">Lyrics</h1>
+      </div>
+      <div class="col s12 m8">
+        <div class='row center-align'></div>
+        <p id='almond'>
+          "noun plural; noun: lyrics -the words of a song." (Merrian Webster's Collegiate Dictionary)</p>
+      </div>
+    </div>
+    <div class='row'></div>
+    <div class="row">
+      <div class="col s12 m3">
+        <div class="card">
+          <div class="card-image">
+        <img src="./develop/assets/Imagine-Dragons-Believer-art.jpeg" alt="image">
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m9">
+        <h1 id ="lyrics" class="center-align"></h1>
+        <div class="card horizontal">
+          <div class="card-stacked">
+            <div class="card-content">
+              <p class='flow-text'> First things first
+              I'ma say all the words inside my head
+              I'm fired up and tired of the way that things have been, oh-ooh
+              The way that things have been, oh-ooh
+              Second thing second
+              Don't you tell me what you think that I could be
+              I'm the one at the sail, I'm the master of my sea, oh-ooh
+              The master of my sea, oh-ooh
+              I was broken from a young age
+              Taking my sulking to the masses
+              Writing my poems for the few
+              That look at me, took to me, shook to me, feeling me
+              Singing from heartache from the pain
+              Taking my message from the veins
+              Speaking my lesson from the brain
+              Seeing the beauty through the...
+              Pain!
+              You made me a, you made me a believer, believer
+              Pain!
+              You break me down and build me up, believer, believer
+              Pain!
+              Oh, let the bullets fly, oh, let them rain
+              My life, my love, my drive, it came from...
+              Pain!
+              You made me a, you made me a believer, believer
+              First things first
+              Can you imagine what's about to happen?
+              It's Weezy the Dragon, I link with the Dragons
+              And we gon' get ratchet, no need for imaginin'
+              This is what's happenin'
+              Second thing second, I reckon immaculate
+              Sound about accurate
+              I know that strength, it don't come, don't come without strategy
+              I know the sweet, it don't come without cavities
+              I know the passages come with some traffic
+              I start with from the basement, end up in the attic
+              And third thing third
+              Whoever call me out, they simply can't count
+              Let's get mathematic, I'm up in this, huh
+              Is you a believer?
+              I get a unicorn out of a zebra
+              I wear my uniform like a tuxedo
+              This dragon don't hold his breath, don't need no breather
+              Love you Ms. Cita, the son of a leader
+              I know the bloomin' don't come without rain
+              I know the losin' don't come without shame
+              I know the beauty don't come without hurt
+              Hol' up, hol' up, last thing last
+              I know that Tunechi don't come without Wayne
+              I know that losin' don't come without game
+              I know that glory don't come without...
+              Don't come without...
+              Pain!
+              You made me a, you made me a believer, believer
+              Pain!
+              You break me down and build me up, believer, believer
+              Pain
+              Oh, let the bullets fly, oh, let them rain
+              My life, my love, my drive, it came from...
+              Pain!
+              You made me a, you made me a believer, believer
+              Last things last
+              By the grace of fire and flames
+              You're the face of the future, the blood in my veins, oh-ooh
+              The blood in my veins, oh-ooh
+              But they never did, ever lived, ebbing and flowing
+              Inhibited, limited 'til it broke open and rained down
+              It rained down, like...
+              Pain!
+              You made me a, you made me a believer, believer
+              Pain!
+              You break me down and build me up, believer, believer
+              Pain
+              Oh, let the bullets fly, oh, let them rain
+              My life, my love, my drive, it came from...
+              Pain!
+              You made me a, you made me a believer, believer
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div id='black' class="row">
+      <div class="col s12 m8">
+        <div class='row'></div>
+        <p id='almond' class='center-align'>
+          "Seriously? You searched up the definition of definition? Shut up. GET OUTTA HERE" <br>(Urban Dictionary)</p>
+      </div>
+      <div class='col s12 m4'>
+        <h1 id='definitions' class="center-align">Definitions</h1>
+      </div>
+    </div>
+  </section>
+  <section>
+      <div class="row">
+        <div class="col s12 m4 offset-m1">
+          <div class="row">
+            <div class="col s12 m4">
+              <div class="card">
+                <div class="card-image">
+                  <img src="./develop/assets/merriam-webseter.png" alt="Meriam-Webster-Image">
+                </div>
+              </div>
+            </div>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid odit temporibus autem sunt, facilis modi deserunt asperiores rerum aperiam, dolor culpa vel fugit enim, saepe repudiandae amet itaque accusantium cupiditate. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nostrum, at doloribus incidunt sint quo consequuntur. Quia, soluta, quaerat libero voluptatum reprehenderit alias, corrupti molestiae illo totam laboriosam non earum! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus autem voluptate quidem ut illum esse deserunt eum tempora reiciendis perspiciatis magnam quis, aspernatur sunt similique eius nulla cum voluptas dolore. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id iste rem quisquam architecto illum eum impedit quos nam! Harum, tenetur dolore dignissimos corporis et doloremque eius adipisci explicabo quae amet.</p>
+            </div>
+          </div>
+        <div class="col s12 m4 offset-m2">
+          <div class="row">
+            <div class="col s12 m4">
+              <div class="card">
+                <div class="card-image">
+                  <img src="./develop/assets/320px-UD_logo-01.svg.png" alt="image">
+                </div>
+              </div>
+            </div>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid odit temporibus autem sunt, facilis modi deserunt asperiores rerum aperiam, dolor culpa vel fugit enim, saepe repudiandae amet itaque accusantium cupiditate. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nostrum, at doloribus incidunt sint quo consequuntur. Quia, soluta, quaerat libero voluptatum reprehenderit alias, corrupti molestiae illo totam laboriosam non earum! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus autem voluptate quidem ut illum esse deserunt eum tempora reiciendis perspiciatis magnam quis, aspernatur sunt similique eius nulla cum voluptas dolore. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id iste rem quisquam architecto illum eum impedit quos nam! Harum, tenetur dolore dignissimos corporis et doloremque eius adipisci explicabo quae amet.</p>
+            </div>
+          </div>
+        </div>
+    </section>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./develop/script/script.js"></script>
+  <script>
 
-
-
-
-  <form>
-    <p>
-      <label for="searchArtist">Artist</label>
-      <input type="text" name="searchArtist" id="searchArtist">
-    </p>
-    <p>
-      <label for="searchSong">Song Title</label>
-      <input type="text" name="searchSong" id="searchSong">
-    </p>
-    <button id="searchBtn">Search</button>
-  </form>
-
-
-
-  <div id='artistDiv'></div>
-  <div id="songDiv"></div>
-  <div id="urbanDiv"></div>
-  <div id="merriamDiv"></div>
   
+    M.AutoInit();
 
+  
+  </script>
 
   <script>
     let searchBtn = document.getElementById('searchBtn')
@@ -68,99 +328,99 @@
           lyricsElem.className = "lyrics card"
           lyricsElem.innerHTML =
             `
-            Lyrics: 
-            <br>
-            ${song.lyrics}
-
-
-
-        <form>
-    <p>
-      <label for="search">search</label>
-      <input type="text" name="search" id="search">
-    </p>
-    <p>
-      <button class="urbanBtn merriamBtn" id="searchTerm">Search term</button>
-    </p>
-    </form>
-
-            `
+              Lyrics: 
+              <br>
+              ${song.lyrics}
+  
+  
+  
+          <form>
+      <p>
+        <label for="search">search</label>
+        <input type="text" name="search" id="search">
+      </p>
+      <p>
+        <button class="urbanBtn merriamBtn" id="searchTerm">Search term</button>
+      </p>
+      </form>
+  
+              `
           document.getElementById('songDiv').append(lyricsElem)
 
-             axios.get(`https://theaudiodb.com/api/v1/json/1/search.php?s=${document.getElementById('searchArtist').value}`)
+          axios.get(`https://theaudiodb.com/api/v1/json/1/search.php?s=${document.getElementById('searchArtist').value}`)
             .then(res => {
               document.getElementById('artistDiv').innerHTML = ''
               let artist = res.data
               console.log(artist)
               let artistElem = document.createElement('image')
               artistElem.innerHTML = `
-                <img src= ${artist.artists[0].strArtistThumb} >
-              `
+                  <img src= ${artist.artists[0].strArtistThumb} >
+                `
 
               document.getElementById('artistDiv').append(artistElem)
             })
             .catch(err => console.error(err))
 
-         
-        })
-
-          .catch(err => console.error(err))
-
 
         })
-        
-    
-  
+
+        .catch(err => console.error(err))
+
+
+    })
+
+
+
 
     //URBAN DICTIONARY SEARCH BUTTON EVENT LISTENER AND API REQUEST
 
     document.addEventListener('click', event => {
       event.preventDefault()
-      
-      
+
+
       if (event.target.classList.contains('urbanBtn')) {
 
         // document.getElementById('searchTerm').addEventListener('click', event => {
         //   event.preventDefault()
-          document.getElementById('urbanDiv').innerHTML = ''
+        document.getElementById('urbanDiv').innerHTML = ''
+
+
+        const options = {
+          method: 'GET',
+          url: 'https://mashape-community-urban-dictionary.p.rapidapi.com/define',
+          params: { term: document.getElementById('search').value },
+          headers: {
+            'x-rapidapi-key': '5b1b7e178amsh3bc5c884fdb5116p1a97e0jsn383898b43bbd',
+            'x-rapidapi-host': 'mashape-community-urban-dictionary.p.rapidapi.com'
+          }
+        };
+
+        axios.request(options).then(function (response) {
+          console.log(response.data)
+          let term = response.data
+
+          // for (let i = 0; i<response.data.list.length; i++) {
+
+          let termElem = document.createElement('div')
+
+          termElem.className = 'card'
+          termElem.innerHTML = `
+  
           
-
-          const options = {
-            method: 'GET',
-            url: 'https://mashape-community-urban-dictionary.p.rapidapi.com/define',
-            params: { term: document.getElementById('search').value },
-            headers: {
-              'x-rapidapi-key': '5b1b7e178amsh3bc5c884fdb5116p1a97e0jsn383898b43bbd',
-              'x-rapidapi-host': 'mashape-community-urban-dictionary.p.rapidapi.com'
-            }
-          };
-
-          axios.request(options).then(function (response) {
-            console.log(response.data)
-            let term = response.data
-
-            // for (let i = 0; i<response.data.list.length; i++) {
-            
-              let termElem = document.createElement('div')
-
-            termElem.className = 'card'
-            termElem.innerHTML = `
-
-        
-          ${term.list[0].definition}
-
-
-        `
-            document.getElementById('urbanDiv').append(termElem)
+            ${term.list[0].definition}
+  
+  
+          `
+          document.getElementById('urbanDiv').append(termElem)
 
 
 
-          }).catch(function (error) {
-            console.error(error)
-          });
+        }).catch(function (error) {
+          console.error(error)
+        });
 
 
-        }
+      }
       //MERRIAM WEBSTER API REQUEST
 
       if (event.target.classList.contains('merriamBtn')) {
@@ -169,22 +429,22 @@
 
         //   // event.preventDefault()
 
-          // event.preventDefault()
+        // event.preventDefault()
 
-          document.getElementById('merriamDiv').innerHTML = ''
-          
-          axios.get(`https://www.dictionaryapi.com/api/v3/references/collegiate/json/${document.getElementById('search').value}? key=5f89c99f-0dd2-4d8e-8a70-b6cb031e66c9`)
-            .then(res => {
-              let def = res.data
-              console.log(def)
-              let defElem = document.createElement('div')
-              defElem.className = 'card'
-              defElem.innerHTML = `
-              ${def[0].shortdef[0]}
-              `
-              document.getElementById('merriamDiv').append(defElem)
-            })
-        
+        document.getElementById('merriamDiv').innerHTML = ''
+
+        axios.get(`https://www.dictionaryapi.com/api/v3/references/collegiate/json/${document.getElementById('search').value}? key=5f89c99f-0dd2-4d8e-8a70-b6cb031e66c9`)
+          .then(res => {
+            let def = res.data
+            console.log(def)
+            let defElem = document.createElement('div')
+            defElem.className = 'card'
+            defElem.innerHTML = `
+                ${def[0].shortdef[0]}
+                `
+            document.getElementById('merriamDiv').append(defElem)
+          })
+
       }
     })
 
@@ -194,28 +454,28 @@
 
 
 
-    // document.addEventListener('click', event => {
-    //   event.preventDefault()
+      // document.addEventListener('click', event => {
+      //   event.preventDefault()
 
-    //   if (event.target.classList.contains('merriamBtn')) {
+      //   if (event.target.classList.contains('merriamBtn')) {
 
-    //     document.getElementById('searchTerm2').addEventListener('click', event => {
-    //       event.preventDefault()
-    //       document.getElementById('merriamDiv').innerHTML = ''
-    //       axios.get(`https://www.dictionaryapi.com/api/v3/references/collegiate/json/${document.getElementById('search2').value}? key=5f89c99f-0dd2-4d8e-8a70-b6cb031e66c9`)
-    //         .then(res => {
-    //           let def = res.data
-    //           console.log(def)
-    //           let defElem = document.createElement('div')
-    //           defElem.className = 'card'
-    //           defElem.innerHTML = `
-    //           ${def[0].shortdef[0]}
-    //           `
-    //           document.getElementById('merriamDiv').append(defElem)
-    //         })
-    //     })
-    //   }
-    // })
+      //     document.getElementById('searchTerm2').addEventListener('click', event => {
+      //       event.preventDefault()
+      //       document.getElementById('merriamDiv').innerHTML = ''
+      //       axios.get(`https://www.dictionaryapi.com/api/v3/references/collegiate/json/${document.getElementById('search2').value}? key=5f89c99f-0dd2-4d8e-8a70-b6cb031e66c9`)
+      //         .then(res => {
+      //           let def = res.data
+      //           console.log(def)
+      //           let defElem = document.createElement('div')
+      //           defElem.className = 'card'
+      //           defElem.innerHTML = `
+      //           ${def[0].shortdef[0]}
+      //           `
+      //           document.getElementById('merriamDiv').append(defElem)
+      //         })
+      //     })
+      //   }
+      // })
 
 
 
@@ -224,13 +484,13 @@
 
 
   </script>
-
-
-
-
-
+  
+  
+  
+  
+  
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
+  
   <script>
 
 
@@ -243,8 +503,11 @@
 
 
   </script>
-
-
+  
+  
+  </body>
+  
+  </html>
 </body>
 
 </html>
