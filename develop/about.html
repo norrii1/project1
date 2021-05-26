@@ -1,94 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About</title>
-
-  <style>
-
-    .brand-logo {
-  position: relative;
-  margin-left: 1%;
-}
-
-#search {
-  height: 4vw;
-  border-top: 5px !important;
-}
-
-textarea:focus {
-  border-bottom: none !important;
-  box-shadow: none !important;
-}
-
-.input-field {
-  border-bottom: none !important;
-}
-
-input[type="text"] {
-  border-bottom: none !important;
-  outline: none !important;
-}
-  </style>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+  <title>Document</title>
+  <link rel="stylesheet" href="./style/reset.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="./style/style.css">
+  <link rel="stylesheet" href="./style/about.css">
 
 </head>
+
 <body>
  
-  <nav class='navbar-fixed'>
-    <div class="nav-wrapper">
-      <a href="./index2.html" class="brand-logo">SongSlang</a>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <div class='right hide-on-med-and-down'>
-        <form id=searhForm>
-          <div class="input-field">
-            <input id="search" class='center-align' type="search" required>
-            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-          </div>
-        </form>
+    <!-- Navbar -->
+    <nav class='navbar-fixed'id= "navbarStick">
+      <div class="nav-wrapper">
+        <a href="../index.html" class="brand-logo"><img src="./assets/songslanglogo.png" alt="songslanglogo"></a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="../index.html"><i class="material-icons left">audiotrack</i>Home</a></li>
+          <li><a href="./definitions.html"><i class="material-icons left">school</i>Definitions</a></li>
+          <li><a href="./about.html"><i class="material-icons left">group</i>About Us</a></li>
+        </ul>
       </div>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="./index2.html"><i class="material-icons left">audiotrack</i>Home</a></li>
-        <li><a href="./develop/page2.html"><i class="material-icons left">school</i>Definitions</a></li>
-      </ul>
-    </div>
- 
-  
-  <ul class="sidenav" id="mobile-demo">
-    <li><a href="./index2.html" class='waves-effect'><i class="material-icons left">audiotrack</i>Home</a></li>
-    <li><a href="./develop/page2.html" class='waves-effect'><i class="material-icons left">school</i>Definitions</a></li>
-    
-    <li>
-      <form id=searhForm>
-        <div class="input-field">
-          <input id="search" class='center-align' type="search" required>
-          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-        </div>
-    </li>
-    </form>
-  </ul>
-  </nav>
+    </nav>
+    <!-- sidenavbar -->
+    <ul class="sidenav" id="mobile-demo">
+      <li><a href="../index.html"><i class="material-icons left">audiotrack</i>Home</a></li>
+      <li><a href="./definitions.html"><i class="material-icons left">school</i>Definitions</a></li>
+      <li><a href="./about.html"><i class="material-icons left">group</i>About Us</a></li>
+    </ul>
 
-
-  <div class="container">
+  <div class="container" id='container'>
     <div class="jumbotron" id="tagline">
       <h2>About SongSlang</h2>
      
     </div>
     <div class="row">
       <div class="col m12">
+        <div class='row'></div>
         <h4>What is SongSlang?</h4>
-  
+        <div class='row'></div>
         <div class="divider"></div>
         <p>SongSlang is an app that allows you to look up the lyrics of any of your favorite songs, and then search both the Urban Dictionary and Merriam Webster definitions of any words in those songs. Simply type in the name of the song and the artist, and the lyrics as well as search functions for both dictionaries will appear. Alternatively, you can head over to the definitions page and look up definitions in both dictionaries without providing song lyrics. We hope you enjoy the app!
           SongSlang uses the following databases to access information:  </p>
           <br>
         </div>
-
+        <div class='row'></div>
         
          <div class='row'>
 
@@ -97,7 +59,7 @@ input[type="text"] {
                 <div class="col s12 m12">
                   <div class="card-small">
                     <div class="card-image">
-                      <img src="develop/assets/lyricsovh.png">
+                      <img src="./assets/lyricsovh.png">
                       <br>
                       <!-- <span class="card-title">LyricsOvh</span> -->
                       
@@ -119,7 +81,7 @@ input[type="text"] {
               <div class="col s12 m12">
                 <div class="card-small">
                   <div class="card-image">
-                    <img src="develop/assets/urbandictionarysmall.png">
+                    <img src="./assets/urbandictionarysmall.png">
                     <br>
                     <!-- <span class="card-title">Urban Dictionary</span> -->
                   </div>
@@ -141,7 +103,7 @@ input[type="text"] {
               <div class="col s12 m12">
                 <div class="card-small">
                   <div class="card-image">
-                    <img src="develop/assets/merriamsmall.png">
+                    <img src="./assets/merriamsmall.png">
                     <br>
                     <!-- <span class="card-title">Merriam Webster</span> -->
                   </div>
@@ -162,7 +124,7 @@ input[type="text"] {
               <div class="col s12 m12">
                 <div class="card-small">
                   <div class="card-image">
-                    <img src="develop/assets/audiodbsmall.png">
+                    <img src="./assets/audiodbsmall.png">
                     <!-- <span class="card-title">TheAudioDB</span> -->
                     
                   </div>
@@ -207,7 +169,7 @@ input[type="text"] {
 
       <div class="col m12">
         <h4>About The Team</h4>
-      
+        <div class='row'></div>
         <div class="divider"></div>
         <p>SongSlang was developed by Team Awesome aka Sle Ahn, Alex Noriega, and Michael Scharf for their first project at UC Irvine coding bootcamp. The idea came when they realized that many words in songs are either not pronounced clearly or are not commonly used. For more information about each of the team members, you can check out the links below. </p>
       
@@ -217,14 +179,14 @@ input[type="text"] {
 
      
 
-
+      <div class='row'></div>
       <div class='col m4'>
       
           <div class="row">
             <div class="col s12">
               <div class="card">
                 <div class="card-image">
-                  <img src="develop/assets/IMG_1048.jpg">
+                  <img src="./assets/IMG_1048.jpg">
                   <span class="card-title black-text">Alexander Noriega</span>
                 </div>
                 <div class="card-content">
@@ -245,7 +207,7 @@ input[type="text"] {
           <div class="col s12">
             <div class="card">
               <div class="card-image">
-                <img src="develop/assets/Joon2.jpeg">
+                <img src="./assets/Joon2.jpeg">
                 <span class="card-title black-text myTitle">Sle Ahn</span>
               </div>
               <div class="card-content">
@@ -372,6 +334,9 @@ input[type="text"] {
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="./script/script.js"></script>
+
+
 </body>
 </html>

@@ -22,12 +22,6 @@ input[type="text"] {
   outline: none !important;
 }
 
-.card-image {
-  padding: 2%;
-  display: span;
-}
-
-#urban {
-  background-image: url(../assets/320px-UD_logo-01.svg.png);
-  background-repeat: no-repeat;
+#container{
+  margin-top: 83px;
 }

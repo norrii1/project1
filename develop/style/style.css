@@ -1,4 +1,118 @@
-   .brand-logo {
-     position: relative;
-     margin-left: 1%;
-   }
+body {
+  background-color: gainsboro;
+}
+
+.card {
+  word-wrap: break-word;
+}
+
+#mainSearch {
+  background-color: whitesmoke;
+  background-image: url(../assets/animemusic.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+nav {
+  background-color: black;
+}
+
+.sidenav {
+  background-color: darkgrey;
+}
+
+#black {
+  background-color: black;
+}
+
+#definitions, #lyricsHead {
+  background-color: black;
+  padding: 0;
+  margin: 0;
+  color: blanchedalmond;
+}
+
+#almond {
+  color: blanchedalmond;
+}
+
+h1, h2, h3, h4, h5 {
+  padding: 0;
+  margin: 0;
+}
+
+.input-field {
+  color: black;
+}
+
+/* label color */
+
+.input-field label {
+  color: #000;
+}
+
+/* label focus color */
+
+.input-field input[type=text]:focus+label {
+  color: #000;
+}
+
+/* label underline focus color */
+
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+}
+
+.input-field placeholder {
+  color: black;
+}
+
+.input-field input[type=text] {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+  font-size: 20px;
+  background-color: whitesmoke;
+  opacity: 0.8;
+}
+
+/* icon prefix focus color */
+
+.input-field .prefix.active {
+  color: #000;
+}
+
+.input-field.col label {
+  font-size: 20px;
+}
+
+::-webkit-input-placeholder {
+  color: black;
+  opacity: 1 !important;
+  /* for older chrome versions. may no longer apply. */
+}
+
+.btn-large {
+  background-color: black!important;
+}
+/* CSS FOR STICKY */
+/* Page content */
+
+.content {
+  padding: 16px;
+}
+
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+
+.sticky+.content {
+  padding-top: 102px;
+}
