@@ -166,7 +166,11 @@
       if (event.target.classList.contains('merriamBtn')) {
 
         // document.getElementById('searchTerm').addEventListener('click', event => {
+
+        //   // event.preventDefault()
+
           // event.preventDefault()
+
           document.getElementById('merriamDiv').innerHTML = ''
           
           axios.get(`https://www.dictionaryapi.com/api/v3/references/collegiate/json/${document.getElementById('search').value}? key=5f89c99f-0dd2-4d8e-8a70-b6cb031e66c9`)
