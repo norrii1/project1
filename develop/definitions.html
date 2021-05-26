@@ -67,7 +67,7 @@
     }
   
     .input-field {
-      color: black;
+      color: lightgrey !important;
     }
   
     /* label color */
@@ -77,7 +77,7 @@
   
     /* label focus color */
     .input-field input[type=text]:focus+label {
-      color: #000;
+      color:lightgrey !important;
     }
   
     /* label underline focus color */
@@ -88,7 +88,7 @@
     }
   
     .input-field placeholder {
-      color: black;
+      color: lightgrey !important;
     }
   
     .input-field input[type=text] {
@@ -109,7 +109,7 @@
     }
   
     ::-webkit-input-placeholder {
-      color: black;
+      color: grey;
       opacity: 1 !important;
       /* for older chrome versions. may no longer apply. */
     }
@@ -119,11 +119,16 @@
     }
     .myDef  {
       font-size: 20px;
+     
       
     }
     .myPlaceholder {
       color: lightgrey;
       background-color: lightgrey;
+    }
+
+    .pirate {
+      color: grey;
     }
     
   </style>
@@ -183,7 +188,7 @@
         <h3>Merriam Webster</h3>
 
         <div class="divider"></div>
-        <p class="myDef" id="merriamDiv">
+        <p class="myDef pirate" id="merriamDiv">
             
           Jib scurvy bilged on her anchor ballast Arr topgallant gaff Yellow Jack stern long clothes. Ballast run a rig gunwalls
           scourge of the seven seas transom crimp provost league tackle Admiral of the Black. Lass boatswain gally ye bring a
@@ -206,7 +211,7 @@
         <h3>Urban Dictionary</h3>
 
         <div class="divider"></div>
-        <p class="myDef" id="urbanDiv">
+        <p class="myDef pirate" id="urbanDiv">
 
           Scuttle rigging scurvy cog lee nipper Letter of Marque transom Buccaneer Privateer. Chain Shot ho Letter of Marque
           hornswaggle booty fathom jack bounty maroon Barbary Coast. Nipperkin Barbary Coast measured fer yer chains blow the man
@@ -324,11 +329,17 @@
 
     //URBAN DICTIONARY SEARCH BUTTON EVENT LISTENER AND API REQUEST
 
+    
+
+
     document.addEventListener('click', event => {
       event.preventDefault()
 
 
       if (event.target.classList.contains('urbanBtn')) {
+
+        document.getElementById('urbanDiv').classList.remove('pirate')
+        document.getElementById('merriamDiv').classList.remove('pirate')
 
         // document.getElementById('searchTerm').addEventListener('click', event => {
         //   event.preventDefault()
@@ -356,13 +367,24 @@
           termElem.className = 'card'
           termElem.innerHTML = `
 
-        
+
           ${term.list[0].definition}
 
 
         `
-          document.getElementById('urbanDiv').append(termElem)
+          console.log(termElem.textContent)
 
+          for (let i = 0; i <= termElem.textContent.length; i++) {
+            if (termElem.textContent[i] === '[' || termElem.textContent[i] === ']') {
+              termElem.textContent[i] = ''
+            }
+          }
+
+          
+          
+
+          document.getElementById('urbanDiv').append(termElem)
+          
 
 
         }).catch(function (error) {
@@ -379,6 +401,7 @@
         //   // event.preventDefault()
         // event.preventDefault()
         document.getElementById('merriamDiv').innerHTML = ''
+
 
         axios.get(`https://www.dictionaryapi.com/api/v3/references/collegiate/json/${document.getElementById('searchTerm').value}? key=5f89c99f-0dd2-4d8e-8a70-b6cb031e66c9`)
           .then(res => {
@@ -497,7 +520,7 @@
       })
   })
 
-  
+
 //PREVIOUS DEFINITION URBAN DICTIONARY
 
   let prevUrb = document.getElementById('prevUrb')
@@ -550,32 +573,6 @@
     }
     )
 
-
-
-
-
-    // document.addEventListener('click', event => {
-    //   event.preventDefault()
-
-    //   if (event.target.classList.contains('merriamBtn')) {
-
-    //     document.getElementById('searchTerm2').addEventListener('click', event => {
-    //       event.preventDefault()
-    //       document.getElementById('merriamDiv').innerHTML = ''
-    //       axios.get(`https://www.dictionaryapi.com/api/v3/references/collegiate/json/${document.getElementById('search2').value}? key=5f89c99f-0dd2-4d8e-8a70-b6cb031e66c9`)
-    //         .then(res => {
-    //           let def = res.data
-    //           console.log(def)
-    //           let defElem = document.createElement('div')
-    //           defElem.className = 'card'
-    //           defElem.innerHTML = `
-    //           ${def[0].shortdef[0]}
-    //           `
-    //           document.getElementById('merriamDiv').append(defElem)
-    //         })
-    //     })
-    //   }
-    // })
 
 
 
