@@ -12,6 +12,9 @@
   <link rel="stylesheet" href="./develop/style/style.css">
 
   <style>
+ #songBtn{
+   color: white;
+ }
  
   </style>
 </head>
@@ -54,24 +57,26 @@
     <div class="row"></div>
     <div class="row"></div>
     <div class="row"></div>
-      <form id ='songForm' method='POST'class="col s12">
+      <form id ='songForm' class="col s12">
         <div class='row'>
           <div class="input-field col s4 offset-s1">
-            <input placeholder=" i.e. Lazy Song" id="song_title" type="text" class="validate">
+            <input placeholder=" i.e. Lazy Song" id="song_title" type="text" class="validate" name='song_title' required>
             <label for="song_title">Song Title</label>
+            <span class="helper-text" data-error="Please enter a song title"></span>
           </div>
         </div>
         <div class="row"></div>
         <div class="row"></div>
         <div class="row"> 
           <div class="input-field col s4 offset-s1">
-            <input placeholder=' i.e. Bruno Mars'id="song_artist" type="text" class="validate">
+            <input placeholder=' i.e. Bruno Mars'id="song_artist" type="text" class="validate" name='song_artist' required>
             <label for="song_artist">Artist</label>
+            <span class="helper-text" data-error="Please enter a song artist"></span>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s5 offset-s1">
-            <a href='#lyricsHead'class="waves-effect waves-light btn-large" id='songBtn'><i class="material-icons right">search</i>button</a>
+            <input type="submit" value="Search" class= 'waves-effect waves-light btn-large' id= 'songBtn'>
           </div>
         </div>
       </form>
@@ -234,13 +239,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./develop/script/script.js"></script>
     <script>
-      
-        document.addEventListener('DOMContentLoaded', function () {
-          var elems = document.querySelectorAll('.scrollspy');
-          var instances = M.ScrollSpy.init(elems, options);
-        });
-    </script>
+      addEventListener('click', event=>{
+        console.log(event.target);
 
+      })
+    </script>
 </body>
 
 </html>
