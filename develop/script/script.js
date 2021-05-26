@@ -1,3 +1,4 @@
+// start of functions/ initiators for materialize to work for our pages
 document.addEventListener('DOMContentLoaded', function () {
   var elem = document.querySelector('.sidenav');
   var instance = new M.Sidenav(elem);
@@ -22,3 +23,4 @@ function myFunction() {
     header.classList.remove("sticky");
   }
 }
+// end of functions/ initiators for materialize to work for our pages
