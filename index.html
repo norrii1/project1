@@ -84,10 +84,6 @@
     </p>
     </form>
 
-
-    
-
-
             `
           document.getElementById('songDiv').append(lyricsElem)
 
@@ -120,13 +116,14 @@
 
     document.addEventListener('click', event => {
       event.preventDefault()
-
+      
+      
       if (event.target.classList.contains('urbanBtn')) {
 
-        document.getElementById('searchTerm').addEventListener('click', event => {
-          event.preventDefault()
+        // document.getElementById('searchTerm').addEventListener('click', event => {
+        //   event.preventDefault()
           document.getElementById('urbanDiv').innerHTML = ''
-
+          
 
           const options = {
             method: 'GET',
@@ -143,7 +140,9 @@
             let term = response.data
 
             // for (let i = 0; i<response.data.list.length; i++) {
-            let termElem = document.createElement('div')
+            
+              let termElem = document.createElement('div')
+
             termElem.className = 'card'
             termElem.innerHTML = `
 
@@ -161,15 +160,19 @@
           });
 
 
-        })
-      }
+        }
       //MERRIAM WEBSTER API REQUEST
 
       if (event.target.classList.contains('merriamBtn')) {
 
-        document.getElementById('searchTerm').addEventListener('click', event => {
+        // document.getElementById('searchTerm').addEventListener('click', event => {
+
+        //   // event.preventDefault()
+
           // event.preventDefault()
+
           document.getElementById('merriamDiv').innerHTML = ''
+          
           axios.get(`https://www.dictionaryapi.com/api/v3/references/collegiate/json/${document.getElementById('search').value}? key=5f89c99f-0dd2-4d8e-8a70-b6cb031e66c9`)
             .then(res => {
               let def = res.data
@@ -181,7 +184,7 @@
               `
               document.getElementById('merriamDiv').append(defElem)
             })
-        })
+        
       }
     })
 
