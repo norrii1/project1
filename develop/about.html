@@ -1,78 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About</title>
-
-  <style>
-
-    .brand-logo {
-  position: relative;
-  margin-left: 1%;
-}
-
-#search {
-  height: 4vw;
-  border-top: 5px !important;
-}
-
-textarea:focus {
-  border-bottom: none !important;
-  box-shadow: none !important;
-}
-
-.input-field {
-  border-bottom: none !important;
-}
-
-input[type="text"] {
-  border-bottom: none !important;
-  outline: none !important;
-}
-  </style>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+  <title>Document</title>
+  <link rel="stylesheet" href="./style/reset.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="./style/style.css">
+  <link rel="stylesheet" href="./style/about.css">
 
 </head>
+
 <body>
  
-  <nav class='navbar-fixed'>
-    <div class="nav-wrapper">
-      <a href="./index2.html" class="brand-logo">SongSlang</a>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <div class='right hide-on-med-and-down'>
-        <form id=searhForm>
-          <div class="input-field">
-            <input id="search" class='center-align' type="search" required>
-            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-          </div>
-        </form>
+    <!-- Navbar -->
+    <nav class='navbar-fixed'>
+      <div class="nav-wrapper">
+        <a href="../index.html" class="brand-logo"><img src="./assets/songslanglogo.png" alt="songslanglogo"></a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="../index.html"><i class="material-icons left">audiotrack</i>Home</a></li>
+          <li><a href="./definitions.html"><i class="material-icons left">school</i>Definitions</a></li>
+          <li><a href="./about.html"><i class="material-icons left">group</i>About Us</a></li>
+        </ul>
       </div>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="./index2.html"><i class="material-icons left">audiotrack</i>Home</a></li>
-        <li><a href="./develop/page2.html"><i class="material-icons left">school</i>Definitions</a></li>
-      </ul>
-    </div>
- 
-  
-  <ul class="sidenav" id="mobile-demo">
-    <li><a href="./index2.html" class='waves-effect'><i class="material-icons left">audiotrack</i>Home</a></li>
-    <li><a href="./develop/page2.html" class='waves-effect'><i class="material-icons left">school</i>Definitions</a></li>
-    
-    <li>
-      <form id=searhForm>
-        <div class="input-field">
-          <input id="search" class='center-align' type="search" required>
-          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-        </div>
-    </li>
-    </form>
-  </ul>
-  </nav>
-
+    </nav>
+    <!-- sidenavbar -->
+    <ul class="sidenav" id="mobile-demo">
+      <li><a href="../index.html" class='waves-effect'><i class="material-icons left">audiotrack</i>Home</a></li>
+      <li><a href="./definitions.html" class='waves-effect'><i class="material-icons left">school</i>Definitions</a>
+      <li><a href="./about.html"><i class="material-icons left">face</i>About Us</a></li>
+    </ul>
 
   <div class="container">
     <div class="jumbotron" id="tagline">
@@ -372,6 +333,11 @@ input[type="text"] {
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="./script/script.js"></script>
+<script>
+  M.AutoInit();
+</script>
+
 </body>
 </html>
