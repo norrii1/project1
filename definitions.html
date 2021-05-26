@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Definitions</title>
+  <link rel="stylesheet" href="./develop/style/reset.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+
+
+  <style>
+
+
+
+  </style>
+</head>
+
+<body>
+
+
+
+
+  <form>
+
+    <p>
+      <label for="searchTerm">Search Term</label>
+      <input type="text" name="searchSong" id="searchTerm">
+    </p>
+    <button class="urbanBtn merriamBtn" id="searchBtn">Search</button>
+  </form>
+
+
+
+
+
+
+  <!-- main content -->
+  <div class="container">
+    <div class="jumbotron" id="tagline">
+      <h1>HEADER JUMBO</h1>
+      <p>ok bla bla</p>
+    </div>
+    <div class="row">
+      <div class="col m6">
+        <img src="develop/assets/merriamsmall.png" alt="">
+        <h3>Main</h3>
+
+        <div class="divider"></div>
+        <p id="merriamDiv"></p>
+
+        <button class="btn btn-flat blue waves-effect waves-light white-text">Click Me</button>
+
+      </div>
+      <div class="col m6">
+        <img src="develop/assets/urbandictionarysmall.png" alt="">
+        <h3>Main</h3>
+
+        <div class="divider"></div>
+        <p id="urbanDiv"></p>
+
+        <button class="btn btn-flat blue waves-effect waves-light white-text">Click Me</button>
+
+      </div>
+
+      <div class="col l3">
+
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+  <!--login modal-->
+  <div id="modalLogin" class="modal">
+    <div class="modal-content">
+      <h2 class="center-align">Login</h2>
+      <div class="center-align">
+        <div class="divider"></div>
+        <form class="col s12">
+          <div class="row center-align">
+            <div class="input-field col m10 offset-m1 blue-text">
+              <i class="mdi-action-account-circle prefix"></i>
+              <input id="icon_prefix" type="text" class="validate">
+              <label for="icon_prefix">Username</label>
+            </div>
+            <div class="input-field col m10 offset-m1 blue-text ">
+              <i class="mdi-action-lock-open prefix"></i>
+              <input id="icon_password" type="password" class="validate">
+              <label for="icon_password">Password</label>
+            </div>
+            <div class="input-field col m10 offset-m1 blue-text">
+              <input type="checkbox" class="blue-text" id="filled-in-box" checked="checked">
+              <label for="filled-in-box">Remember me next time</label>
+            </div>
+          </div>
+        </form>
+        <div class="divider"></div>
+        <p>
+          <a href="#" class="btn btn-flat white modal-close">Cancel</a> &nbsp;
+          <a href="#" class="waves-effect waves-blue blue btn btn-flat modal-action modal-close">Login</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <!--footer-->
+  <footer class="page-footer blue">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Footer Content</h5>
+          <p class="grey-text text-lighten-4">You can use rows and columns here to organize your content.</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Links</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        © 2015 Copyright Text
+        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+
+
+  <script>
+    let searchBtn = document.getElementById('searchBtn')
+
+
+
+    //EVENT LISTENER FOR LYRICS SEARCH BUTTON,  LYRIC API REQUEST
+
+
+
+
+
+
+
+
+    //URBAN DICTIONARY SEARCH BUTTON EVENT LISTENER AND API REQUEST
+
+    document.addEventListener('click', event => {
+      event.preventDefault()
+
+
+      if (event.target.classList.contains('urbanBtn')) {
+
+        // document.getElementById('searchTerm').addEventListener('click', event => {
+        //   event.preventDefault()
+        document.getElementById('urbanDiv').innerHTML = ''
+
+
+        const options = {
+          method: 'GET',
+          url: 'https://mashape-community-urban-dictionary.p.rapidapi.com/define',
+          params: { term: document.getElementById('searchTerm').value },
+          headers: {
+            'x-rapidapi-key': '5b1b7e178amsh3bc5c884fdb5116p1a97e0jsn383898b43bbd',
+            'x-rapidapi-host': 'mashape-community-urban-dictionary.p.rapidapi.com'
+          }
+        };
+
+        axios.request(options).then(function (response) {
+          console.log(response.data)
+          let term = response.data
+
+          // for (let i = 0; i<response.data.list.length; i++) {
+
+          let termElem = document.createElement('div')
+
+          termElem.className = 'card'
+          termElem.innerHTML = `
+
+        
+          ${term.list[0].definition}
+
+
+        `
+          document.getElementById('urbanDiv').append(termElem)
+
+
+
+        }).catch(function (error) {
+          console.error(error)
+        });
+
+
+      }
+      //MERRIAM WEBSTER API REQUEST
+
+      if (event.target.classList.contains('merriamBtn')) {
+
+        // document.getElementById('searchTerm').addEventListener('click', event => {
+        //   // event.preventDefault()
+        // event.preventDefault()
+        document.getElementById('merriamDiv').innerHTML = ''
+
+        axios.get(`https://www.dictionaryapi.com/api/v3/references/collegiate/json/${document.getElementById('searchTerm').value}? key=5f89c99f-0dd2-4d8e-8a70-b6cb031e66c9`)
+          .then(res => {
+            let def = res.data
+            console.log(def)
+            let defElem = document.createElement('div')
+            defElem.className = 'card'
+            defElem.innerHTML = `
+              ${def[0].shortdef[0]}
+              `
+            document.getElementById('merriamDiv').append(defElem)
+          })
+
+      }
+    })
+
+
+
+
+
+
+
+    // document.addEventListener('click', event => {
+    //   event.preventDefault()
+
+    //   if (event.target.classList.contains('merriamBtn')) {
+
+    //     document.getElementById('searchTerm2').addEventListener('click', event => {
+    //       event.preventDefault()
+    //       document.getElementById('merriamDiv').innerHTML = ''
+    //       axios.get(`https://www.dictionaryapi.com/api/v3/references/collegiate/json/${document.getElementById('search2').value}? key=5f89c99f-0dd2-4d8e-8a70-b6cb031e66c9`)
+    //         .then(res => {
+    //           let def = res.data
+    //           console.log(def)
+    //           let defElem = document.createElement('div')
+    //           defElem.className = 'card'
+    //           defElem.innerHTML = `
+    //           ${def[0].shortdef[0]}
+    //           `
+    //           document.getElementById('merriamDiv').append(defElem)
+    //         })
+    //     })
+    //   }
+    // })
+
+
+
+
+
+
+
+  </script>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <script>
+
+
+
+
+
+
+
+
+
+
+  </script>
+
+
+</body>
+
+</html>
