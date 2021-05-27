@@ -1,5 +1,3 @@
-
-
 let mySearchBtn = document.getElementById('mySearchBtn')
 let urban = 0
 let merriam = 0

@@ -1,4 +1,6 @@
 # <Project 1: SongSlang>
+### website: <a href='https://norrii1.github.io/project1/'>https://norrii1.github.io/project1/</a>
+
 ## Description:
   - Considering the endless applications available, we wanted to create a practical and useful application to everyday consumers
       

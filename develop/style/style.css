@@ -1,133 +1,132 @@
- #searchBtn {
-   color: white;
- }
 
- body {
-   background-color: gainsboro;
- }
+#searchBtn {
+  color: white;
+}
 
- .card {
-   word-wrap: break-word;
- }
+body {
+  background-color: gainsboro;
+}
 
- #mainSearch {
-   background-color: whitesmoke;
-   background-image: url(../assets/animemusic.jpg);
-   background-repeat: no-repeat;
-   background-size: cover;
-   background-position: center;
- }
+.card {
+  word-wrap: break-word;
+}
 
- nav {
-   background-color: black;
- }
+#mainSearch {
+  background-color: whitesmoke;
+  background-image: url(../assets/animemusic.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
 
- .sidenav {
-   background-color: darkgrey;
- }
+nav {
+  background-color: black;
+}
 
- #black {
-   background-color: black;
- }
+.sidenav {
+  background-color: darkgrey;
+}
 
- #definitions, #lyricsHead {
-   background-color: black;
-   padding: 0;
-   margin: 0;
-   color: blanchedalmond;
- }
+.black {
+  background-color: black;
+}
 
- #almond {
-   color: blanchedalmond;
- }
+#definitions, #lyricsHead {
+  background-color: black;
+  padding: 0;
+  margin: 0;
+  color: blanchedalmond;
+}
 
- p {
-   padding: 2px;
- }
+.almond {
+  color: blanchedalmond;
+}
 
- h1, h2, h3, h4, h5 {
-   padding: 0;
-   margin: 0;
- }
+p {
+  padding: 2px;
+}
 
- .input-field {
-   color: black;
- }
+h1, h2, h3, h4, h5 {
+  padding: 0;
+  margin: 0;
+}
+
+.input-field {
+  color: black;
+}
 
  /* label color */
 
- .input-field label {
-   color: #000;
- }
+.input-field label {
+  color: #000;
+}
 
- /* label focus color */
+/* label focus color */
 
- .input-field input[type=text]:focus+label {
-   color: #000;
- }
+.input-field input[type=text]:focus+label {
+  color: #000;
+}
 
- /* label underline focus color */
+/* label underline focus color */
 
- .input-field input[type=text]:focus {
-   border-bottom: 1px solid #000;
-   box-shadow: 0 1px 0 0 #000;
- }
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+}
 
- .input-field placeholder {
-   color: black;
- }
+.input-field placeholder {
+  color: black;
+}
 
- .input-field input[type=text] {
-   border-bottom: 1px solid #000;
-   box-shadow: 0 1px 0 0 #000;
-   font-size: 20px;
-   background-color: whitesmoke;
-   opacity: 0.8;
- }
+.input-field input[type=text] {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+  font-size: 20px;
+  background-color: whitesmoke;
+  opacity: 0.8;
+}
 
- /* icon prefix focus color */
+/* icon prefix focus color */
 
- .input-field .prefix.active {
-   color: #000;
- }
+.input-field .prefix.active {
+  color: #000;
+}
 
- .input-field.col label {
-   font-size: 20px;
- }
+.input-field.col label {
+ font-size: 20px;
+}
 
- ::-webkit-input-placeholder {
-   color: black;
-   opacity: 1 !important;
-   /* for older chrome versions. may no longer apply. */
- }
+::-webkit-input-placeholder {
+  color: black;
+  opacity: 1 !important;
+  /* for older chrome versions. may no longer apply. */
+}
 
- .btn-large {
-   background-color: black!important;
- }
+.btn-large {
+  background-color: black!important;
+}
 
- /* CSS FOR STICKY */
+/* Page content */
 
- /* Page content */
-
- .content {
-   padding: 16px;
- }
+.content {
+  padding: 16px;
+}
 
  /* The sticky class is added to the header with JS when it reaches its scroll position */
 
- .sticky {
-   position: fixed;
-   top: 0;
-   width: 100%
- }
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
 
  /* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
 
- .sticky+.content {
-   padding-top: 102px;
- }
+.sticky+.content {
+  padding-top: 102px;
+}
 
- .white{
-   background-color: whitesmoke;
-   border-color: black;
- }
+.white{
+  background-color: whitesmoke;
+  border-color: black;
+}
