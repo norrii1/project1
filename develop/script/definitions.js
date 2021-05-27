@@ -1,37 +1,16 @@
 
+
 let mySearchBtn = document.getElementById('mySearchBtn')
 let urban = 0
 let merriam = 0
 
-
-
-
-
-
-
-
-
-
-
-
 //URBAN DICTIONARY SEARCH BUTTON EVENT LISTENER AND API REQUEST
-
-
-
 
 mySearchBtn.addEventListener('click', event => {
   event.preventDefault()
-
-
-  // if (event.target.classList.contains('urbanBtn')) {
-
   document.getElementById('urbanDiv1').classList.remove('pirate')
   document.getElementById('merriamDiv1').classList.remove('pirate')
-
-  // document.getElementById('searchTerm').addEventListener('click', event => {
-  //   event.preventDefault()
   document.getElementById('urbanDiv1').innerHTML = ''
-
 
   const options1 = {
     method: 'GET',
@@ -46,17 +25,11 @@ mySearchBtn.addEventListener('click', event => {
   axios.request(options1).then(function (response) {
     console.log(response.data)
     let term = response.data
-
-    // for (let i = 0; i<response.data.list.length; i++) {
-
     let termElem = document.createElement('div')
-
     termElem.innerHTML = `
           ${term.list[0].definition}
         `
     console.log(termElem.textContent)
-
-
 
     for (let i = 0; i <= termElem.textContent.length; i++) {
       if (termElem.textContent[i] === '[' || termElem.textContent[i] === ']') {
@@ -64,28 +37,15 @@ mySearchBtn.addEventListener('click', event => {
       }
     }
 
-
-
-
     document.getElementById('urbanDiv1').append(termElem)
-
-
 
   }).catch(function (error) {
     console.error(error)
   });
 
-
-
   //MERRIAM WEBSTER API REQUEST
 
-  // if (event.target.classList.contains('merriamBtn')) {
-
-  // document.getElementById('searchTerm1').addEventListener('click', event => {
-  //   // event.preventDefault()
-  // event.preventDefault()
   document.getElementById('merriamDiv1').innerHTML = ''
-
 
   axios.get(`https://www.dictionaryapi.com/api/v3/references/collegiate/json/${document.getElementById('searchTerm1').value}? key=5f89c99f-0dd2-4d8e-8a70-b6cb031e66c9`)
     .then(res => {
@@ -98,7 +58,6 @@ mySearchBtn.addEventListener('click', event => {
       document.getElementById('merriamDiv1').append(defElem)
     })
 
-
 })
 
 //THIS IS THE FUNCTION FOR THE 'NEXT DEFINITION' BUTTON. IT TAKES THE MERRIAM AND URBAN VARIABLE AND INCREMENTS IT BY 1 FOR EVERY TIME THE 'NEXT DEFINITION' IS CLICKED, AND CONDUCTS A NEW REQUEST USING THAT VALUE. 
@@ -109,9 +68,6 @@ mySearchBtn.addEventListener('click', event => {
 //FIRST ONE IS THE MERRIAM WEBSTER NEXT DEFINITION BUTTON
 
 let merBtn = document.getElementById('merBtn')
-
-
-
 merBtn.addEventListener("click", event => {
   merriam++
 
@@ -133,9 +89,7 @@ merBtn.addEventListener("click", event => {
 //NEXT DEFINITION BUTTON FOR URBAN DICTIONARY
 
 let urbBtn = document.getElementById('urbBtn')
-
 urbBtn.addEventListener('click', event => {
-
   urban++
 
   document.getElementById('urbanDiv1').innerHTML = ''
@@ -154,31 +108,20 @@ urbBtn.addEventListener('click', event => {
   axios.request(options1).then(function (response) {
     console.log(response.data)
     let term = response.data
-
-    // for (let i = 0; i<response.data.list.length; i++) {
-
     let termElem = document.createElement('div')
-
     termElem.innerHTML = `
-        
-          ${term.list[urban].definition}
+         ${term.list[urban].definition}
         `
     document.getElementById('urbanDiv1').append(termElem)
-
-
 
   }).catch(function (error) {
     console.error(error)
   });
-
-
-}
-)
+})
 
 //PREVIOUS DEFINITION BUTTON MERRIAM WEBSTER
 
 let prevMer = document.getElementById('prevMer')
-
 prevMer.addEventListener("click", event => {
   merriam--
 
@@ -197,17 +140,13 @@ prevMer.addEventListener("click", event => {
     })
 })
 
-
 //PREVIOUS DEFINITION URBAN DICTIONARY
 
 let prevUrb = document.getElementById('prevUrb')
-
 prevUrb.addEventListener('click', event => {
-
   urban--
 
   document.getElementById('urbanDiv1').innerHTML = ''
-
 
   const options1 = {
     method: 'GET',
@@ -222,26 +161,13 @@ prevUrb.addEventListener('click', event => {
   axios.request(options1).then(function (response) {
     console.log(response.data)
     let term = response.data
-
-    // for (let i = 0; i<response.data.list.length; i++) {
-
     let termElem = document.createElement('div')
-
     termElem.innerHTML = `
-        
-          ${term.list[urban].definition}
+        ${term.list[urban].definition}
         `
-
-
-    // termElem.replace(/[\[\]']+/g, '')
     document.getElementById('urbanDiv1').append(termElem)
-
-
 
   }).catch(function (error) {
     console.error(error)
   });
-
-
-}
-)
+})
