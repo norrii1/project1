@@ -25,6 +25,13 @@ searchBtn.addEventListener('click', event => {
 })
 searchBtn.addEventListener('click', event => {
   event.preventDefault()
+  let art = document.getElementById('searchArtist').value
+  let song = document.getElementById('searchSong').value
+  if (art === '' || song === '') {
+    document.getElementById('artistDiv').innerHTML = ''
+    document.getElementById('songDiv').innerHTML = ''
+    return false
+  } else {
   axios.get(`https://theaudiodb.com/api/v1/json/1/search.php?s=${document.getElementById('searchArtist').value}`)
     .then(res => {
       document.getElementById('artistDiv').innerHTML = ''
@@ -38,6 +45,7 @@ searchBtn.addEventListener('click', event => {
       console.log('artistDiv')
     })
     .catch(err => console.error(err))
+  }
 })
 
 
