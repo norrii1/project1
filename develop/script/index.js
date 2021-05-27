@@ -1,7 +1,4 @@
 let searchBtn = document.getElementById('searchBtn')
-document.getElementById('artistDiv').src = '../assets/Imagine-Dragons-Believer-art.jpeg'
-
-
 
 //EVENT LISTENER FOR LYRICS SEARCH BUTTON,  LYRIC API REQUEST
 searchBtn.addEventListener('click', event => {
@@ -12,13 +9,11 @@ searchBtn.addEventListener('click', event => {
       let song = res.data
       console.log(song)
       let lyricsElem = document.createElement('div')
-      lyricsElem.innerHTML =
-        `
+      lyricsElem.innerHTML = `
             Lyrics:
             <br>
             <br>
             ${song.lyrics}
-            
             `
       document.getElementById('songDiv').append(lyricsElem)
     })
@@ -28,40 +23,36 @@ searchBtn.addEventListener('click', event => {
   event.preventDefault()
   let art = document.getElementById('searchArtist').value
   let song = document.getElementById('searchSong').value
+  
   if (art === '' || song === '') {
     document.getElementById('artistDiv').innerHTML = ''
     document.getElementById('songDiv').innerHTML = ''
     return false
+  
   } else {
-  axios.get(`https://theaudiodb.com/api/v1/json/1/search.php?s=${document.getElementById('searchArtist').value}`)
-    .then(res => {
-      document.getElementById('artistDiv').innerHTML =''
-      let artist = res.data
-      console.log(artist)
-      let artistElem = document.createElement('image')
-      artistElem.innerHTML = `
+    
+    axios.get(`https://theaudiodb.com/api/v1/json/1/search.php?s=${document.getElementById('searchArtist').value}`)
+      .then(res => {
+        document.getElementById('artistDiv').innerHTML = ''
+        let artist = res.data
+        console.log(artist)
+        let artistElem = document.createElement('image')
+        artistElem.innerHTML = `
                   <img src= ${artist.artists[0].strArtistThumb} >
                 `
-      document.getElementById('artistDiv').append(artistElem)
-      console.log('artistDiv')
-    })
-    .catch(err => console.error(err))
+        document.getElementById('artistDiv').append(artistElem)
+        console.log('artistDiv')
+      })
+      .catch(err => console.error(err))
   }
 })
-
-
 //URBAN DICTIONARY SEARCH BUTTON EVENT LISTENER AND API REQUEST
 
-
 let searchTerm = document.getElementById('searchTerm')
-
 searchTerm.addEventListener('click', event => {
 
-
   event.preventDefault()
-  // if (event.target.classList.contains('urbanBtn')) {
-  // document.getElementById('searchTerm').addEventListener('click', event => {
-  //   event.preventDefault()
+  
   document.getElementById('urbanDiv').innerHTML = ''
   const options = {
     method: 'GET',
@@ -75,7 +66,6 @@ searchTerm.addEventListener('click', event => {
   axios.request(options).then(function (response) {
     console.log(response.data)
     let term = response.data
-    // for (let i = 0; i<response.data.list.length; i++) {
     let termElem = document.createElement('div')
     termElem.className = ''
     termElem.innerHTML = `
@@ -88,9 +78,7 @@ searchTerm.addEventListener('click', event => {
 
 
   //MERRIAM WEBSTER API REQUEST
-  // if (event.target.classList.contains('merriamBtn')) {
-  // document.getElementById('searchTerm').addEventListener('click', event => {
-  // event.preventDefault()
+  
   document.getElementById('merriamDiv').innerHTML = ''
   axios.get(`https://www.dictionaryapi.com/api/v3/references/collegiate/json/${document.getElementById('search').value}? key=5f89c99f-0dd2-4d8e-8a70-b6cb031e66c9`)
     .then(res => {
@@ -110,11 +98,8 @@ searchTerm.addEventListener('click', event => {
 //NEXT AND PREVIOUS DEFINITION BUTTONS
 
 let merBtn = document.getElementById('merBtn')
-
 let merriam = 0
 let urban = 0
-
-
 
 merBtn.addEventListener("click", event => {
   merriam++
@@ -138,13 +123,10 @@ merBtn.addEventListener("click", event => {
 //NEXT DEFINITION BUTTON FOR URBAN DICTIONARY
 
 let urbBtn = document.getElementById('urbBtn')
-
 urbBtn.addEventListener('click', event => {
+    urban++
 
-  urban++
-
-  document.getElementById('urbanDiv').innerHTML = ''
-
+    document.getElementById('urbanDiv').innerHTML = ''
 
   const options1 = {
     method: 'GET',
@@ -159,11 +141,7 @@ urbBtn.addEventListener('click', event => {
   axios.request(options1).then(function (response) {
     console.log(response.data)
     let term = response.data
-
-    // for (let i = 0; i<response.data.list.length; i++) {
-
     let termElem = document.createElement('div')
-
     termElem.className = ''
     termElem.innerHTML = `
         
@@ -174,17 +152,14 @@ urbBtn.addEventListener('click', event => {
 
 
   }).catch(function (error) {
+    
     console.error(error)
   });
-
-
-}
-)
+})
 
 //PREVIOUS DEFINITION BUTTON MERRIAM WEBSTER
 
 let prevMer = document.getElementById('prevMer')
-
 prevMer.addEventListener("click", event => {
   merriam--
 
@@ -204,17 +179,13 @@ prevMer.addEventListener("click", event => {
     })
 })
 
-
 //PREVIOUS DEFINITION URBAN DICTIONARY
-
 let prevUrb = document.getElementById('prevUrb')
-
 prevUrb.addEventListener('click', event => {
 
   urban--
 
   document.getElementById('urbanDiv').innerHTML = ''
-
 
   const options1 = {
     method: 'GET',
@@ -229,27 +200,14 @@ prevUrb.addEventListener('click', event => {
   axios.request(options1).then(function (response) {
     console.log(response.data)
     let term = response.data
-
-    // for (let i = 0; i<response.data.list.length; i++) {
-
     let termElem = document.createElement('div')
-
     termElem.className = ''
     termElem.innerHTML = `
-        
-          ${term.list[urban].definition}
+        ${term.list[urban].definition}
         `
-
-
-    // termElem.replace(/[\[\]']+/g, '')
-    document.getElementById('urbanDiv').append(termElem)
-
-
+document.getElementById('urbanDiv').append(termElem)
 
   }).catch(function (error) {
     console.error(error)
   });
-
-
-}
-)
+})
