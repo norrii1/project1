@@ -1,4 +1,5 @@
 let searchBtn = document.getElementById('searchBtn')
+document.getElementById('artistDiv').src = '../assets/Imagine-Dragons-Believer-art.jpeg'
 
 
 
@@ -34,7 +35,7 @@ searchBtn.addEventListener('click', event => {
   } else {
   axios.get(`https://theaudiodb.com/api/v1/json/1/search.php?s=${document.getElementById('searchArtist').value}`)
     .then(res => {
-      document.getElementById('artistDiv').innerHTML = ''
+      document.getElementById('artistDiv').innerHTML =''
       let artist = res.data
       console.log(artist)
       let artistElem = document.createElement('image')
