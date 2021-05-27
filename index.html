@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>SongSlang</title>
   <link rel="stylesheet" href="./develop/style/reset.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -20,12 +20,13 @@
       <a href="./index.html" class="brand-logo"><img src="./develop/assets/songslanglogo.png" alt="songslanglogo"></a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
+        <!-- added dropdown with scrollspy -->
         <ul id="dropdown2" class="dropdown-content">
           <li><a href="#mainSearch"><span class="badge">Search</span></a></li>
           <li><a href="#B"><span class="badge">Lyrics</span></a></li>
           <li><a href="#C"><span class="badge">Definitions</span></a></li>
         </ul>
-        <a id='black'class="btn dropdown-trigger" href="#!" data-target="dropdown2">Contents<i
+        <a class="btn dropdown-trigger black" href="#!" data-target="dropdown2">Contents<i
             class="material-icons left">explore</i></a>
         <li><a href="./index.html"><i class="material-icons left">audiotrack</i>Home</a></li>
         <li><a href="./develop/definitions.html"><i class="material-icons left">school</i>Dictionary</a></li>
@@ -33,7 +34,7 @@
       </ul>
     </div>
   </nav>
-<!-- sidenavbar -->
+<!-- sidenavbar media responsive-->
   <ul class="sidenav" id="mobile-demo">
     <li><a href="./index.html" class='waves-effect'><i class="material-icons left">audiotrack</i>Home</a></li>
     <li><a href="./develop/definitions.html" class='waves-effect'><i class="material-icons left">school</i>Dictionary</a>
@@ -43,7 +44,7 @@
     <li><a href="#B"><i class="material-icons left">queue_music</i>Lyrics</a></li>
     <li><a href="#C"><i class="material-icons left">library_books</i>Definitions</a></li>
   </ul>
-  
+<!-- section for our main search form -->
   <section id= 'mainSearch' class='section scrollspy'>
     <div class="row"></div>
     <div class="row"></div>
@@ -53,6 +54,7 @@
     <div class="row"></div>
       <form id ='songForm' class="col s12">
         <div class='row'>
+          <!-- first search form for Song Title with validators-->
           <div class="input-field col s4 offset-s1">
             <input placeholder=" i.e. Lazy Song" id="searchSong" type="text" class="validate" name='searchSong' required>
             <label for="searchSong">Song Title</label>
@@ -62,13 +64,15 @@
         <div class="row"></div>
         <div class="row"></div>
         <div class="row"> 
+          <!-- second search form for Artist with validators-->
           <div class="input-field col s4 offset-s1">
-            <input placeholder=' i.e. Bruno Mars'id="searchArtist" type="text" class="validate" name='searchArtist' required>
+            <input placeholder=' i.e. Bruno Mars' id="searchArtist" type="text" class="validate" name='searchArtist' required>
             <label for="searchArtist">Artist</label>
             <span class="helper-text" data-error="Please enter a song artist"></span>
           </div>
         </div>
         <div class="row">
+          <!-- Submit button -->
           <div class="input-field col s5 offset-s1">
             <input type="submit" value="Search" class= 'waves-effect waves-light btn-large' id= 'searchBtn'>
           </div>
@@ -81,34 +85,39 @@
     <div class="row"></div>
     <div class="row"></div>
   </section>
+  <!-- a row containing a header of Lyrics and with its definition from Merriam-Webster -->
   <section>
-    <div id= 'black'class="row">
+    <div class="row black">
       <div class= 'col s12 m4'>
         <h1 id='lyricsHead' class="center-align section scrollspy">Lyrics</h1>
       </div>
       <div class="col s12 m8">
         <div class='row center-align'></div>
-        <p id='almond'>
+        <p class='almond'>
           "noun plural; noun: lyrics -the words of a song." (Merriam-Webster's Collegiate Dictionary)</p>
       </div>
     </div>
     <div class='row content scrollspy' id='B'></div>
     <div class="row">
+      <!-- Artist image will pop up here -->
       <div class="col s12 m3">
         <div class="card">
           <div class="card-image">
+            <!-- temporary image will be replaced by newly searched ones -->
             <div id="artistDiv">
-              <img src="./develop/assets/brunomars.jpeg"></img>
+              <img src="./develop/assets/brunomars.jpeg" alt='sample-image-bruno-mars'>
             </div>
           </div>
         </div>
       </div>
+      <!-- Lyrics will pop up here -->
       <div class="col s12 m9">
-        <h1 id ="lyrics" class="center-align"></h1>
+        <div id ="lyrics" class="center-align"></div>
         <div class="card horizontal">
           <div class="card-stacked">
             <div class="card-content">
               <p class='flow-text'> 
+                <!-- temporary lyrics will be replaced by newly searched ones -->
                 <div id="songDiv">Lyrics: <br><br>
                 Today I don't feel like doin' anything I just wanna lay in my bed Don't feel like picking up my phone So leave a message
                 at the tone Cause today I swear I'm not doin' anything I'm gonna kick my feet up and stare at the fan Turn the tv on
@@ -133,11 +142,12 @@
       </div>
     </div>
   </section>
+  <!-- a row containing a header of Definitions with Urban Dictionary's definiton of it-->
   <section id= "C" class='section scrollspy'>
-    <div id='black' class="row">
+    <div class="row black">
       <div class="col s12 m8">
         <div class='row'></div>
-        <p id='almond' class='center-align'>
+        <p class='almond center-align'>
           "Seriously? You searched up the definition of definition? Shut up. GET OUTTA HERE" <br>(Urban Dictionary)</p>
       </div>
       <div class='col s12 m4'>
@@ -145,12 +155,14 @@
       </div>
     </div>
   </section>
+  <!-- a section for Merriam and Urban dictionary -->
   <section>
     <div>
+      <!-- a search bar function for the Merriam and Urban dictionary cards -->
       <form>
         <p>
           <label for="search">Search for Definitions from Merriam Webster and Urban Dictionary</label>
-          <input placeholder=' i.e. "Lazy"'type="text" name="search" id="search">
+          <input placeholder=' i.e. "Lazy"' type="text" name="search" id="search">
         </p>
         <p>
           <button class="center-align btn btn-flat black waves-effect waves-light white-text" id="searchTerm">Search
@@ -161,6 +173,7 @@
       <div class="row"></div>
       <div class="row"></div>
       <div class="row">
+        <!-- Merriam Webster Card with its image and label holder definitons -->
         <div class="col s12 m4 offset-m1">
           <div class="row white">
             <div class="col s12 m4">
@@ -173,13 +186,16 @@
             <p id="merriamDiv">disinclined to activity or exertion : not energetic or vigorous
             </p>
             </div>
+            <!-- Previous button for Merriam definition -->
             <div class="col s6 m6 align-left">
               <button class="btn btn-flat black waves-effect waves-light white-text" id='prevMer'>Previous</button>
             </div>
+            <!-- Next button for Merriam definitions -->
             <div class="col s6 m6">
               <button class="btn btn-flat black waves-effect waves-light white-text" id='merBtn'>Next</button>
             </div>
           </div>
+          <!-- Urbany Dictionary Card with its image and label holder definitions -->
         <div class="col s12 m4 offset-m2">
           <div class="row white">
             <div class="col s12 m4">
@@ -194,15 +210,18 @@
               cry of reason, often drowned out by [shrills] of "duuurrrr" from every dronish, hard-working idiot in the world.
               </p>
             </div>
+            <!-- Previous button for Urban definitions -->
             <div class="col s6 m6 align-left">
               <button class="btn btn-flat black waves-effect waves-light white-text" id='prevUrb'>Previous</button>
             </div>
+            <!-- Next button for Urban definitions -->
             <div class="col s6 m6">
               <button class="btn btn-flat black waves-effect waves-light white-text" id='urbBtn'>Next</button>
             </div>
           </div>
         </div>
     </section>
+    <!-- scripts that needs to be referred to in order to use their library and code -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./develop/script/script.js"></script>
     <script src="./develop/script/index.js"></script>

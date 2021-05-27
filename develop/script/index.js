@@ -3,6 +3,7 @@ let searchBtn = document.getElementById('searchBtn')
 //EVENT LISTENER FOR LYRICS SEARCH BUTTON,  LYRIC API REQUEST
 searchBtn.addEventListener('click', event => {
   event.preventDefault()
+  console.log('ping');
   axios.get(`https://api.lyrics.ovh/v1/${document.getElementById('searchArtist').value}/${document.getElementById('searchSong').value}`)
     .then(res => {
       document.getElementById('songDiv').innerHTML = ''
@@ -21,6 +22,7 @@ searchBtn.addEventListener('click', event => {
 })
 searchBtn.addEventListener('click', event => {
   event.preventDefault()
+  //conditionals serving as a filter for our form so that empty inputs are not allowed
   let art = document.getElementById('searchArtist').value
   let song = document.getElementById('searchSong').value
   
