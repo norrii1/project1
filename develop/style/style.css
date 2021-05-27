@@ -126,3 +126,8 @@
  .sticky+.content {
    padding-top: 102px;
  }
+
+ .white{
+   background-color: whitesmoke;
+   border-color: black;
+ }
