@@ -51,7 +51,6 @@ mySearchBtn.addEventListener('click', event => {
 
     let termElem = document.createElement('div')
 
-    termElem.className = 'card'
     termElem.innerHTML = `
           ${term.list[0].definition}
         `
@@ -93,7 +92,6 @@ mySearchBtn.addEventListener('click', event => {
       let def = res.data
       console.log(def)
       let defElem = document.createElement('div')
-      defElem.className = 'card'
       defElem.innerHTML = `
               ${def[0].shortdef[0]}
               `
@@ -125,7 +123,6 @@ merBtn.addEventListener("click", event => {
       let def = res.data
       console.log(def)
       let defElem = document.createElement('div')
-      defElem.className = 'card'
       defElem.innerHTML = `
               ${def[merriam].shortdef[0]}
               `
@@ -162,7 +159,6 @@ urbBtn.addEventListener('click', event => {
 
     let termElem = document.createElement('div')
 
-    termElem.className = 'card'
     termElem.innerHTML = `
         
           ${term.list[urban].definition}
@@ -194,7 +190,6 @@ prevMer.addEventListener("click", event => {
       let def = res.data
       console.log(def)
       let defElem = document.createElement('div')
-      defElem.className = 'card'
       defElem.innerHTML = `
               ${def[merriam].shortdef[0]}
               `
@@ -232,7 +227,6 @@ prevUrb.addEventListener('click', event => {
 
     let termElem = document.createElement('div')
 
-    termElem.className = 'card'
     termElem.innerHTML = `
         
           ${term.list[urban].definition}

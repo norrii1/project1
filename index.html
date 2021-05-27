@@ -11,12 +11,6 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="./develop/style/style.css">
 
-  <style>
- #songBtn{
-   color: white;
- }
- 
-  </style>
 </head>
 
 <body>
@@ -32,9 +26,9 @@
           <li><a href="#C"><span class="badge">Definitions</span></a></li>
         </ul>
         <a id='black'class="btn dropdown-trigger" href="#!" data-target="dropdown2">Contents<i
-            class="material-icons left">arrow_drop_down</i></a>
+            class="material-icons left">explore</i></a>
         <li><a href="./index.html"><i class="material-icons left">audiotrack</i>Home</a></li>
-        <li><a href="./develop/definitions.html"><i class="material-icons left">school</i>Definitions</a></li>
+        <li><a href="./develop/definitions.html"><i class="material-icons left">school</i>Dictionary</a></li>
         <li><a href="./develop/about.html"><i class="material-icons left">group</i>About Us</a></li>
       </ul>
     </div>
@@ -42,12 +36,12 @@
 <!-- sidenavbar -->
   <ul class="sidenav" id="mobile-demo">
     <li><a href="./index.html" class='waves-effect'><i class="material-icons left">audiotrack</i>Home</a></li>
-    <li><a href="./develop/definitions.html" class='waves-effect'><i class="material-icons left">school</i>Definitions</a>
+    <li><a href="./develop/definitions.html" class='waves-effect'><i class="material-icons left">school</i>Dictionary</a>
     <li><a href="./develop/about.html"><i class="material-icons left">face</i>About Us</a></li>
     <div class="row"></div>
     <li><a href="#mainSearch"><i class="material-icons left">search</i>Search</a></li>
     <li><a href="#B"><i class="material-icons left">queue_music</i>Lyrics</a></li>
-    <li><a href="#C"><i class="material-icons left">school</i>Definitions</a></li>
+    <li><a href="#C"><i class="material-icons left">library_books</i>Definitions</a></li>
   </ul>
   
   <section id= 'mainSearch' class='section scrollspy'>
@@ -60,8 +54,8 @@
       <form id ='songForm' class="col s12">
         <div class='row'>
           <div class="input-field col s4 offset-s1">
-            <input placeholder=" i.e. Lazy Song" id="song_title" type="text" class="validate" name='song_title' required>
-            <label for="song_title">Song Title</label>
+            <input placeholder=" i.e. Lazy Song" id="searchSong" type="text" class="validate" name='searchSong' required>
+            <label for="searchSong">Song Title</label>
             <span class="helper-text" data-error="Please enter a song title"></span>
           </div>
         </div>
@@ -69,14 +63,14 @@
         <div class="row"></div>
         <div class="row"> 
           <div class="input-field col s4 offset-s1">
-            <input placeholder=' i.e. Bruno Mars'id="song_artist" type="text" class="validate" name='song_artist' required>
-            <label for="song_artist">Artist</label>
+            <input placeholder=' i.e. Bruno Mars'id="searchArtist" type="text" class="validate" name='searchArtist' required>
+            <label for="searchArtist">Artist</label>
             <span class="helper-text" data-error="Please enter a song artist"></span>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s5 offset-s1">
-            <input type="submit" value="Search" class= 'waves-effect waves-light btn-large' id= 'songBtn'>
+            <input type="submit" value="Search" class= 'waves-effect waves-light btn-large' id= 'searchBtn'>
           </div>
         </div>
       </form>
@@ -95,7 +89,7 @@
       <div class="col s12 m8">
         <div class='row center-align'></div>
         <p id='almond'>
-          "noun plural; noun: lyrics -the words of a song." (Merrian Webster's Collegiate Dictionary)</p>
+          "noun plural; noun: lyrics -the words of a song." (Merriam-Webster's Collegiate Dictionary)</p>
       </div>
     </div>
     <div class='row content scrollspy' id='B'></div>
@@ -103,7 +97,7 @@
       <div class="col s12 m3">
         <div class="card">
           <div class="card-image">
-        <img src="./develop/assets/Imagine-Dragons-Believer-art.jpeg" alt="image">
+            <div id="artistDiv"></div>
           </div>
         </div>
       </div>
@@ -112,83 +106,8 @@
         <div class="card horizontal">
           <div class="card-stacked">
             <div class="card-content">
-              <p class='flow-text'> First things first
-              I'ma say all the words inside my head
-              I'm fired up and tired of the way that things have been, oh-ooh
-              The way that things have been, oh-ooh
-              Second thing second
-              Don't you tell me what you think that I could be
-              I'm the one at the sail, I'm the master of my sea, oh-ooh
-              The master of my sea, oh-ooh
-              I was broken from a young age
-              Taking my sulking to the masses
-              Writing my poems for the few
-              That look at me, took to me, shook to me, feeling me
-              Singing from heartache from the pain
-              Taking my message from the veins
-              Speaking my lesson from the brain
-              Seeing the beauty through the...
-              Pain!
-              You made me a, you made me a believer, believer
-              Pain!
-              You break me down and build me up, believer, believer
-              Pain!
-              Oh, let the bullets fly, oh, let them rain
-              My life, my love, my drive, it came from...
-              Pain!
-              You made me a, you made me a believer, believer
-              First things first
-              Can you imagine what's about to happen?
-              It's Weezy the Dragon, I link with the Dragons
-              And we gon' get ratchet, no need for imaginin'
-              This is what's happenin'
-              Second thing second, I reckon immaculate
-              Sound about accurate
-              I know that strength, it don't come, don't come without strategy
-              I know the sweet, it don't come without cavities
-              I know the passages come with some traffic
-              I start with from the basement, end up in the attic
-              And third thing third
-              Whoever call me out, they simply can't count
-              Let's get mathematic, I'm up in this, huh
-              Is you a believer?
-              I get a unicorn out of a zebra
-              I wear my uniform like a tuxedo
-              This dragon don't hold his breath, don't need no breather
-              Love you Ms. Cita, the son of a leader
-              I know the bloomin' don't come without rain
-              I know the losin' don't come without shame
-              I know the beauty don't come without hurt
-              Hol' up, hol' up, last thing last
-              I know that Tunechi don't come without Wayne
-              I know that losin' don't come without game
-              I know that glory don't come without...
-              Don't come without...
-              Pain!
-              You made me a, you made me a believer, believer
-              Pain!
-              You break me down and build me up, believer, believer
-              Pain
-              Oh, let the bullets fly, oh, let them rain
-              My life, my love, my drive, it came from...
-              Pain!
-              You made me a, you made me a believer, believer
-              Last things last
-              By the grace of fire and flames
-              You're the face of the future, the blood in my veins, oh-ooh
-              The blood in my veins, oh-ooh
-              But they never did, ever lived, ebbing and flowing
-              Inhibited, limited 'til it broke open and rained down
-              It rained down, like...
-              Pain!
-              You made me a, you made me a believer, believer
-              Pain!
-              You break me down and build me up, believer, believer
-              Pain
-              Oh, let the bullets fly, oh, let them rain
-              My life, my love, my drive, it came from...
-              Pain!
-              You made me a, you made me a believer, believer
+              <p class='flow-text'> 
+                <div id="songDiv"></div>
               </p>
             </div>
           </div>
@@ -209,6 +128,18 @@
     </div>
   </section>
   <section>
+    <div>
+      <form>
+        <p>
+          <label for="search">Search for Definitions from Merriam Webster and Urban Dictionary</label>
+          <input type="text" name="search" id="search">
+        </p>
+        <p>
+          <button class="center-align btn btn-flat black waves-effect waves-light white-text" id="searchTerm">Search
+            definitions</button>
+        </p>
+      </form>
+    </div>
       <div class="row">
         <div class="col s12 m4 offset-m1">
           <div class="row">
@@ -219,7 +150,14 @@
                 </div>
               </div>
             </div>
-              <p class='flow-text'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid odit temporibus autem sunt, facilis modi deserunt asperiores rerum aperiam, dolor culpa vel fugit enim, saepe repudiandae amet itaque accusantium cupiditate. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nostrum, at doloribus incidunt sint quo consequuntur. Quia, soluta, quaerat libero voluptatum reprehenderit alias, corrupti molestiae illo totam laboriosam non earum! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus autem voluptate quidem ut illum esse deserunt eum tempora reiciendis perspiciatis magnam quis, aspernatur sunt similique eius nulla cum voluptas dolore. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id iste rem quisquam architecto illum eum impedit quos nam! Harum, tenetur dolore dignissimos corporis et doloremque eius adipisci explicabo quae amet.</p>
+            <p id="merriamDiv">
+            </p>
+            </div>
+            <div class="col s6 m6 align-left">
+              <button class="btn btn-flat black waves-effect waves-light white-text" id='prevMer'>Previous</button>
+            </div>
+            <div class="col s6 m6">
+              <button class="btn btn-flat black waves-effect waves-light white-text" id='merBtn'>Next</button>
             </div>
           </div>
         <div class="col s12 m4 offset-m2">
@@ -231,19 +169,24 @@
                 </div>
               </div>
             </div>
-              <p class='flow-text'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid odit temporibus autem sunt, facilis modi deserunt asperiores rerum aperiam, dolor culpa vel fugit enim, saepe repudiandae amet itaque accusantium cupiditate. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nostrum, at doloribus incidunt sint quo consequuntur. Quia, soluta, quaerat libero voluptatum reprehenderit alias, corrupti molestiae illo totam laboriosam non earum! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus autem voluptate quidem ut illum esse deserunt eum tempora reiciendis perspiciatis magnam quis, aspernatur sunt similique eius nulla cum voluptas dolore. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id iste rem quisquam architecto illum eum impedit quos nam! Harum, tenetur dolore dignissimos corporis et doloremque eius adipisci explicabo quae amet.</p>
+              <p id='urbanDiv'>
+              </p>
+            </div>
+            <div class="col s6 m6 align-left">
+              <button class="btn btn-flat black waves-effect waves-light white-text" id='prevUrb'>Previous</button>
+            </div>
+            <div class="col s6 m6">
+              <button class="btn btn-flat black waves-effect waves-light white-text" id='urbBtn'>Next</button>
             </div>
           </div>
         </div>
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./develop/script/script.js"></script>
-    <script>
-      addEventListener('click', event=>{
-        console.log(event.target);
+    <script src="./develop/script/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
 
-      })
-    </script>
 </body>
 
 </html>

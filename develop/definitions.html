@@ -21,11 +21,11 @@
   <!-- Navbar -->
   <nav class='navbar-fixed'id= "navbarStick">
     <div class="nav-wrapper">
-      <a href="../index.html" class="brand-logo"><img src="./assets/songslanglogo.png" alt="songslanglogo"></a>
+      <a href="#" class="brand-logo"><img src="./assets/songslanglogo.png" alt="songslanglogo"></a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="../index.html"><i class="material-icons left">audiotrack</i>Home</a></li>
-        <li><a href="./definitions.html"><i class="material-icons left">school</i>Definitions</a></li>
+        <li><a href="./definitions.html"><i class="material-icons left">school</i>Dictionary</a></li>
         <li><a href="./about.html"><i class="material-icons left">group</i>About Us</a></li>
       </ul>
     </div>
@@ -33,15 +33,16 @@
   <!-- sidenavbar -->
   <ul class="sidenav" id="mobile-demo">
     <li><a href="../index.html"><i class="material-icons left">audiotrack</i>Home</a></li>
-    <li><a href="./definitions.html"><i class="material-icons left">school</i>Definitions</a></li>
+    <li><a href="./definitions.html"><i class="material-icons left">school</i>Dictionary</a></li>
     <li><a href="./about.html"><i class="material-icons left">group</i>About Us</a></li>
   </ul>
 
   <div class='row'></div>
   <div class='row'></div>
   <div class="row"></div>
+  <div class="row"></div>
   
-  <form id='songForm' method='POST' class="col s12 myForm">
+  <form id='songForm' method='POST' class="myForm">
     <div class='row'>
       <div class="input-field col s9 offset-s1">
         <input placeholder="Search any term (try yam)" id="searchTerm1" type="text" class="validate">
@@ -52,56 +53,72 @@
   </form>
 
   <!-- main content -->
-  <div class="container">
-    <div class="row">
-      <div class="col m6">
-        <img src="./assets/merriamsmall.png" alt="">
-        <h3>Merriam Webster</h3>
-  
-        <div class="divider"></div>
-        <p class="myDef pirate" id="merriamDiv1">
-          Jib scurvy bilged on her anchor ballast Arr topgallant gaff Yellow Jack stern long clothes. Ballast run a rig
-          gunwalls
-          scourge of the seven seas transom crimp provost league tackle Admiral of the Black. Lass boatswain gally ye
-          bring a
-          spring upon her cable black.
-        </p>
-  
-  
-  
-        <button class="btn btn-flat black waves-effect waves-light white-text" id='prevMer'>Previous Definition</button>
-  
-        <button class="btn btn-flat black waves-effect waves-light white-text" id='merBtn'>Next Definition</button>
-  
-  
-  
-      </div>
-      <div class="col m6">
-        <img src="./assets/urbandictionarysmall.png" alt="">
-        <h3>Urban Dictionary</h3>
-  
-        <div class="divider"></div>
-        <p class="myDef pirate" id="urbanDiv1">
-  
-          Scuttle rigging scurvy cog lee nipper Letter of Marque transom Buccaneer Privateer. Chain Shot ho Letter of
-          Marque
-          hornswaggle booty fathom jack bounty maroon Barbary Coast. Nipperkin Barbary Coast measured fer yer chains
-          blow
-          the man
-          down Letter of Marque.
-  
-        </p>
-        <button id='prevUrb' class="btn btn-flat black waves-effect waves-light white-text">Previous Definition</button>
-  
-        <button id='urbBtn' class="btn btn-flat black waves-effect waves-light white-text">Next Definition</button>
-  
-      </div>
-  
-      <div class="col l3">
-  
+  <div class="row">
+    <div class="col s12 m4 offset-m1">
+      <div class="card">
+        <div class="row">
+          <div class="card-image">
+            <div class="row"></div>
+            <img id='merriamImg'src="./assets/merriamwebster_hdv.jpeg" alt=''>
+          </div>
+        </div>
+        <div class="row">
+          <div class="card-content">
+            <p class="myDef pirate" id="merriamDiv1">
+              Jib scurvy bilged on her anchor ballast Arr topgallant gaff Yellow Jack stern long clothes. Ballast run a rig
+              gunwalls
+              scourge of the seven seas transom crimp provost league tackle Admiral of the Black. Lass boatswain gally ye
+              bring a
+              spring upon her cable black.
+            </p>
+          </div>
+          <div class="card-action valign-wrapper">
+            <div class="col s6 m6 align-left">
+              <button class="btn btn-flat black waves-effect waves-light white-text" id='prevMer'>Previous</button>
+            </div>
+            <div class="col s6 m6">
+              <button class="btn btn-flat black waves-effect waves-light white-text" id='merBtn'>Next</button>
+            </div>
+            <div class="row"></div>
+          </div>
+        </div>
       </div>
     </div>
-  
+      <div class="col s12 m4 offset-m2">
+        <div class="card">
+          <div class="row">
+            <div class="row"></div>
+            <div class="row"></div>
+            <div class="card-image">
+              <div class="row"></div>
+              <img id='urbImg' src="./assets/ud-logo.jpeg" alt=''>
+            </div>
+          </div>
+          <div class="row"></div>
+          <div class="row"></div>
+          <div class="row">
+            <div class="card-content">
+              <p class="myDef pirate" id="urbanDiv1">
+                Jib scurvy bilged on her anchor ballast Arr topgallant gaff Yellow Jack stern long clothes. Ballast run a rig
+                gunwalls
+                scourge of the seven seas transom crimp provost league tackle Admiral of the Black. Lass boatswain gally ye
+                bring a
+                spring upon her cable black.
+              </p>
+            </div>
+            <div class="card-action valign-wrapper">
+              <div class="col s6 m6 align-left">
+                <button class="btn btn-flat black waves-effect waves-light white-text" id='prevUrb'>Previous</button>
+              </div>
+              <div class="col s6 m6">
+                <button class="btn btn-flat black waves-effect waves-light white-text" id='urbBtn'>Next</button>
+              </div>
+              <div class="row"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
